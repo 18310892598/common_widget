@@ -8,7 +8,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
-        
+        classpath 'com.piitw.plugin:gaea:1.2.0'
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -18,7 +19,13 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven {
+            url 'https://nexus.olafuwu.com/repository/maven-oleyc-android-releases/'
+            credentials {
+                username 'DingXiaoWei'
+                password 'B0C1F4AE795911E89C2188E9FE6@C0E4'
+            }
+        }
     }
 }
 
