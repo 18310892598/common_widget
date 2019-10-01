@@ -22,8 +22,8 @@ allprojects {
         maven {
             url 'https://nexus.olafuwu.com/repository/maven-oleyc-android-releases/'
             credentials {
-                username 'DingXiaoWei'
-                password 'B0C1F4AE795911E89C2188E9FE6@C0E4'
+                username NEXUS_USERNAME
+                password NEXUS_PASSWORD
             }
         }
     }
