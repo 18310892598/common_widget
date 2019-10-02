@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="287dp"
+        android:layout_height="109dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/notify" />
+
+    <LinearLayout
+        android:layout_width="287dp"
+        android:layout_height="256dp"
+        android:background="@drawable/shape_question_camera"
+        android:orientation="vertical"
+        android:paddingLeft="27dp"
+        android:paddingRight="27dp"
+        android:paddingBottom="18dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
+
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/shape_common_gray_corner" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="订单消息通知"
+                android:textColor="@color/textColor_232931"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1.5dp"
+                android:text="第一时间掌握订单当前状态"
+                android:textColor="@color/textcolor_7B7F83"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="2.5dp"
+                android:src="@drawable/shape_common_gray_corner" />
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="乘车活动优惠提醒"
+                android:textColor="@color/textColor_232931"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1.5dp"
+                android:text="知晓最新优惠活动信息"
+                android:textColor="@color/textcolor_7B7F83"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="2.5dp"
+                android:src="@drawable/shape_common_gray_corner" />
+
+            <TextView
+                android:id="@+id/title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="会员权益到账提醒"
+                android:textColor="@color/textColor_232931"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title3"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1.5dp"
+                android:text="及时了解已得会员权益"
+                android:textColor="@color/textcolor_7B7F83"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/bt_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/shape_common_black_corner"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="立即开启"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/close_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/ic_ad_close" />
+
+</LinearLayout>

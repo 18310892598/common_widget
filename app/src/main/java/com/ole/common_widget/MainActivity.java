@@ -1,9 +1,11 @@
 package com.ole.common_widget;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
-import ola.com.dialog.OleDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import ola.com.dialog.DialogHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +13,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        OleDialog.loggg();
+
+//        DialogHelper.showDialogCheckVersion(this, new DialogHelper.DialogListener() {
+//            @Override
+//            public void onCancel() {
+//                Toast.makeText(MainActivity.this,"onCancel",Toast.LENGTH_LONG).show();
+//            }
+//
+//            @Override
+//            public void onOk() {
+//                Toast.makeText(MainActivity.this,"onOk",Toast.LENGTH_LONG).show();
+//            }
+//        },"ver","123","0","content",false);
+
+        DialogHelper.showDialogCheckNotify(this);
     }
 }

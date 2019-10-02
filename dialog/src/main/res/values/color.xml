@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_25">#252525</color>
+    <color name="textColor_232931">#232931</color>
+
+    <color name="white_e7">#e7e7e7</color>
+
+    <color name="blue_76">#0076ff</color>
+    <color name="blue_47">#474D66</color>
+
+    <color name="textcolor_3E">#14A83E</color>
+
+    <color name="textcolor_5a">#4f545a</color>
+    <color name="textcolor_ad">#a7a9ad</color>
+    <color name="textcolor_4f">#4F4F4F</color>
+    <color name="textcolor_7B7F83">#7B7F83</color>
+
+</resources>
