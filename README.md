@@ -29,6 +29,8 @@ if (null != dialog && !dialog.isShowing()) {
 
 5.showDialogCheckVersion
 
+![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l2vhce1yj30cu0psq4j.jpg)
+
 6.showDialogCheckNotify
 
 7.showCallPhoneDialog
