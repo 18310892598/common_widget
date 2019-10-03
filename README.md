@@ -20,10 +20,18 @@ if (null != dialog && !dialog.isShowing()) {
 另外，总结一下DialogHelper中，各种方法的对应样式
 
 1.showDialogRequest
+
 2.showDialogCommon
+
 3.showDialogImgCommon
+
 4.giveCoupon
+
 5.showDialogCheckVersion
+
 6.showDialogCheckNotify
+
 7.showCallPhoneDialog
+
 8.showPayLoading
+
