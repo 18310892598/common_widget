@@ -21,11 +21,19 @@ if (null != dialog && !dialog.isShowing()) {
 
 1.showDialogRequest
 
+![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l2zo8egqj30cy0pumxr.jpg)
+
 2.showDialogCommon
+
+![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l32epp7yj30co0pbdgf.jpg)
 
 3.showDialogImgCommon
 
+![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l33mm70wj30cm0p9jrz.jpg)
+
 4.giveCoupon
+
+![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l34nc9f8j30cm0p8t9g.jpg)
 
 5.showDialogCheckVersion
 
@@ -33,7 +41,12 @@ if (null != dialog && !dialog.isShowing()) {
 
 6.showDialogCheckNotify
 
+![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l35qcr4yj30cn0pawfz.jpg)
+
 7.showCallPhoneDialog
+
+![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l36r9s2uj30cn0p9abw.jpg)
 
 8.showPayLoading
 
+![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l37vmmy1j30cm0pddgj.jpg)
