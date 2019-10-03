@@ -26,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        },"ver","123","0","content",false);
 
-        DialogHelper.showDialogCheckNotify(this);
+        DialogHelper.showPayLoading(this);
     }
 }

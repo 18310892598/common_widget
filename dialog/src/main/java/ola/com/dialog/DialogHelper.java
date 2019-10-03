@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -269,64 +270,32 @@ public class DialogHelper {
         }
     }
 
-//    public static void showCallPhoneDialog(Context context, final DialogListener dialoglListener) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(context,R.style.dialog);
-//        View v = LayoutInflater.from(context).inflate(R.layout.dialog_callphone,null);
-//        AppCompatTextView btok = v.findViewById(R.id.bt_ok);
-//        AppCompatTextView btCancle = v.findViewById(R.id.bt_cancle);
-//
-//        builder.setView(v);
-//        btok.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                stopDialog();
-//                dialoglListener.onOk();
-//            }
-//        });
-//        btCancle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                stopDialog();
-//                dialoglListener.onCancel();
-//            }
-//        });
-//        dialog = builder.create();
-//        if (!dialog.isShowing()){
-//            dialog.show();
-//        }
-//    }
-//
-//    /**
-//     * @desc  支付优化loading弹出框
-//     * @param context
-//     */
-//    public static void showPayLoading(final Context context) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(context,R.style.dialog);
-//        LayoutInflater inLayout = LayoutInflater.from(context);
-//        View v = inLayout.inflate(R.layout.dialog_pay_loading,null);
-//
-//        builder.setView(v);
-//        dialog = builder.create();
-//        dialog.setCanceledOnTouchOutside(false);
-//        dialog.setCancelable(false);
-//        if (null != dialog && !dialog.isShowing()){
-//            dialog.show();
-//        }
-//    }
-//
-//    public static void showPayFail(final Context context) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(context,R.style.dialog);
-//        LayoutInflater inLayout = LayoutInflater.from(context);
-//        View v = inLayout.inflate(R.layout.dialog_pay_loading,null);
-//
-//        builder.setView(v);
-//        dialog = builder.create();
-//        dialog.setCanceledOnTouchOutside(false);
-//        dialog.setCancelable(false);
-//        if (null != dialog && !dialog.isShowing()){
-//            dialog.show();
-//        }
-//    }
+    public static void showCallPhoneDialog(Context context, final DialogListener dialoglListener) {
+        OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_callphone)
+                .setListener(dialoglListener);
+        dialog = oleDialog.dialog;
+        if (null != dialog && !dialog.isShowing()) {
+            dialog.show();
+        }
+    }
+
+    /**
+     * @desc  支付优化loading弹出框
+     * @param context
+     */
+    public static void showPayLoading(final Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context,R.style.dialog);
+        LayoutInflater inLayout = LayoutInflater.from(context);
+        View v = inLayout.inflate(R.layout.dialog_pay_loading,null);
+
+        builder.setView(v);
+        dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+        if (null != dialog && !dialog.isShowing()){
+            dialog.show();
+        }
+    }
 
     public synchronized static void stopDialog() {
         if (null != dialog) {
