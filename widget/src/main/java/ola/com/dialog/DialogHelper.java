@@ -25,7 +25,6 @@ public class DialogHelper {
 
 
     private static Dialog dialog;
-    private DialogListener dialogCancelListener;
 
     public void showDialog(Context context, String title, String content) {
         showDialog(context, title, content, null);
