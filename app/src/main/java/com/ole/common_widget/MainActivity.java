@@ -14,17 +14,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DialogHelper.showDialogCheckVersion(this, new DialogHelper.DialogListener() {
-            @Override
-            public void onCancel() {
-                Toast.makeText(MainActivity.this,"onCancel",Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onOk() {
-                Toast.makeText(MainActivity.this,"onOk",Toast.LENGTH_LONG).show();
-            }
-        },"ver","123","0","content",false);
-
     }
 }
