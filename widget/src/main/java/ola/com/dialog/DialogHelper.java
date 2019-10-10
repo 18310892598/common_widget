@@ -117,7 +117,7 @@ public class DialogHelper {
      * @authro hyx
      */
     public static void showDialogCommon(Context context, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
-        showDialogBase(R.layout.dialog_custom, context, true, title, content, okTitle, cancelTitle, dialoglListener);
+        showDialogBase(ola.com.dialog.R.layout.dialog_custom, context, true, title, content, okTitle, cancelTitle, dialoglListener);
     }
 
     public static void showDialogImgCommon(final Context context, String content, String okbtn, String cancelBtn) {
