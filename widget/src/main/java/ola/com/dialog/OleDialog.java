@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
 
 public class OleDialog {
 
@@ -30,7 +34,7 @@ public class OleDialog {
      * @return
      */
     public static OleDialog getInstance(Context context, int layout) {
-        OleDialog dialog = new OleDialog();
+        final OleDialog dialog = new OleDialog();
 
         LayoutInflater inLayout = LayoutInflater.from(context);
         dialog.holder = inLayout.inflate(layout, null);
@@ -54,8 +58,22 @@ public class OleDialog {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.dialog);
         builder.setView(dialog.holder);
-
         dialog.dialog = builder.create();
+
+        if (context instanceof FragmentActivity){
+            ((FragmentActivity)context).getLifecycle().addObserver(new LifecycleObserver() {
+
+                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                public void onDestroy() {
+                    if (dialog.dialog.isShowing()) {
+                        dialog.dialog.dismiss();
+                    }
+                }
+
+            });
+        }
+
+
         return dialog;
     }
 
