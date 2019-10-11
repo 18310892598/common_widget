@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:background="@mipmap/ic_close"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:textColor="@color/textcolor_bd"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="请选择你的用车时间"
+        android:layout_marginLeft="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/pickerview_topbar_title"
+        android:textSize="20dp" />
+<!--
+    <Button
+        android:id="@id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
+        android:paddingRight="@dimen/x25"
+        android:text="确认"
+        android:paddingLeft="15dp"
+        android:textColor="@color/textcolor_3E"
+        android:textSize="@dimen/x28"/>-->
+</RelativeLayout>
