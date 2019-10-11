@@ -16,19 +16,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.ola.common.widget.pickerview.timer.WheelTimerView
+        <ola.com.pickerview.view.WheelView
             android:id="@+id/options1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2" />
 
-        <com.ola.common.widget.pickerview.timer.WheelTimerView
+        <ola.com.pickerview.view.WheelView
             android:id="@+id/options2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3" />
 
-        <com.ola.common.widget.pickerview.timer.WheelTimerView
+        <ola.com.pickerview.view.WheelView
             android:id="@+id/options3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
