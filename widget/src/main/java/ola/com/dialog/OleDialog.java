@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -16,8 +15,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 public class OleDialog {
 
     public View holder;
-    public AppCompatTextView btOk;
-    public AppCompatTextView btCancel;
+    public TextView btOk;
+    public TextView btCancel;
     public TextView tvTitle;
     public TextView tvContent;
 

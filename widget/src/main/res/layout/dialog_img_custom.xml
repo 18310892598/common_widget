@@ -26,7 +26,7 @@
             android:layout_height="36dp"
             android:background="@mipmap/icon_prompt_wait_pay" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
             android:id="@+id/tv_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/bt_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:background="@color/white_e7"/>
-            <androidx.appcompat.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/bt_ok"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
