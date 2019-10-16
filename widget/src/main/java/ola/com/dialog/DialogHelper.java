@@ -51,7 +51,7 @@ public class DialogHelper {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (!((Activity) context).isDestroyed()) {
-                    stopDialog();
+                    stopDialog(context);
                 }
 
                 if (null != dialogListener) {
@@ -63,7 +63,7 @@ public class DialogHelper {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (!((Activity) context).isDestroyed()) {
-                    stopDialog();
+                    stopDialog(context);
                 }
 
                 if (null != dialogListener) {
@@ -207,7 +207,7 @@ public class DialogHelper {
 
         final boolean isMustFinal = isMust;
 
-        OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_check_version)
+        final OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_check_version)
                 .setTouchCancelable(false);
 
         TextView version = oleDialog.findViewById(R.id.version);
@@ -235,7 +235,7 @@ public class DialogHelper {
                 dialoglListener.onOk();
                 btUpdate.setText("正在下载...");
                 if (!isMustFinal) {
-                    DialogHelper.stopDialog();
+                    DialogHelper.stopDialog(oleDialog.context);
                 }
             }
         });
@@ -259,7 +259,7 @@ public class DialogHelper {
         }
 
         final DialogListener dialogListener = listener;
-        OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_check_notify)
+        final OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_check_notify)
                 .setTouchCancelable(false);
 
         TextView btOk = oleDialog.findViewById(R.id.bt_ok);
@@ -272,7 +272,7 @@ public class DialogHelper {
                 if (dialogListener != null) {
                     dialogListener.onOk();
                 }
-                stopDialog();
+                stopDialog(oleDialog.context);
             }
         });
         btCancle.setOnClickListener(new View.OnClickListener() {
@@ -281,7 +281,7 @@ public class DialogHelper {
                 if (dialogListener != null) {
                     dialogListener.onCancel();
                 }
-                stopDialog();
+                stopDialog(oleDialog.context);
             }
         });
         dialog = oleDialog.dialog;
@@ -325,12 +325,17 @@ public class DialogHelper {
         }
     }
 
-    public synchronized static void stopDialog() {
-        if (null != dialog
-                && dialog.getContext() instanceof Activity
-                && !((Activity) dialog.getContext()).isFinishing()) {
-            dialog.dismiss();
-            dialog = null;
+    public synchronized static void stopDialog(Context context) {
+        if (null != dialog) {
+            if (context instanceof Activity) {
+                if (!((Activity) context).isFinishing()) {
+                    dialog.dismiss();
+                    dialog = null;
+                }
+            } else {
+                dialog.dismiss();
+                dialog = null;
+            }
         }
     }
 
