@@ -107,6 +107,9 @@ public class DialogHelper {
         showDialogBase(R.layout.dialog_custom_request, context, notCanceled, title, content, okTitle, cancelTitle, dialoglListener);
     }
 
+    public static void showDialogIKnow(Context context, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
+        showDialogBase(R.layout.dialog_custom_ikonw, context, notCanceled, title, content, okTitle, cancelTitle, dialoglListener);
+    }
     /**
      * @param context     上下文
      * @param title       标题
