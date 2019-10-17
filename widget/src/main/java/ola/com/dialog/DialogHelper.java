@@ -40,6 +40,9 @@ public class DialogHelper {
     }
 
     public static void showDialog(Context cont, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialogListener) {
+        if (cont instanceof Activity && ((Activity) cont).isFinishing()) {
+            return;
+        }
         final Context context = cont;
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);
@@ -48,7 +51,7 @@ public class DialogHelper {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (!((Activity) context).isDestroyed()) {
-                    stopDialog();
+                    stopDialog(context);
                 }
 
                 if (null != dialogListener) {
@@ -60,7 +63,7 @@ public class DialogHelper {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (!((Activity) context).isDestroyed()) {
-                    stopDialog();
+                    stopDialog(context);
                 }
 
                 if (null != dialogListener) {
@@ -80,6 +83,9 @@ public class DialogHelper {
     }
 
     private static void showDialogBase(int layout, Context context, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
         OleDialog oleDialog = OleDialog.getInstance(context, layout)
                 .setResource(title, content, okTitle, cancelTitle)
                 .setListener(dialoglListener)
@@ -141,6 +147,10 @@ public class DialogHelper {
                                            String cancelBtn, int offset, boolean hideCloseImg,
                                            final DialogListener dialoglListener) {
 
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
+
         OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_img_custom)
                 .setResource(null, content, okbtn, cancelBtn)
                 .setListener(dialoglListener)
@@ -178,6 +188,9 @@ public class DialogHelper {
      */
 
     public static void giveCoupon(final Context context, final DialogListener dialoglListener) {
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
         OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_img_custom_coupon)
                 .setListener(dialoglListener)
                 .setTouchCancelable(false);
@@ -191,9 +204,13 @@ public class DialogHelper {
     public static void showDialogCheckVersion(Context context, final DialogListener dialoglListener,
                                               String versionCode, String packSize, String updateTime,
                                               String detail, boolean isMust) {
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
+
         final boolean isMustFinal = isMust;
 
-        OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_check_version)
+        final OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_check_version)
                 .setTouchCancelable(false);
 
         TextView version = oleDialog.findViewById(R.id.version);
@@ -221,7 +238,7 @@ public class DialogHelper {
                 dialoglListener.onOk();
                 btUpdate.setText("正在下载...");
                 if (!isMustFinal) {
-                    DialogHelper.stopDialog();
+                    DialogHelper.stopDialog(oleDialog.context);
                 }
             }
         });
@@ -240,8 +257,12 @@ public class DialogHelper {
 
     //todo ok替换
     public static void showDialogCheckNotify(Context context, DialogListener listener) {
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
+
         final DialogListener dialogListener = listener;
-        OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_check_notify)
+        final OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_check_notify)
                 .setTouchCancelable(false);
 
         TextView btOk = oleDialog.findViewById(R.id.bt_ok);
@@ -254,7 +275,7 @@ public class DialogHelper {
                 if (dialogListener != null) {
                     dialogListener.onOk();
                 }
-                stopDialog();
+                stopDialog(oleDialog.context);
             }
         });
         btCancle.setOnClickListener(new View.OnClickListener() {
@@ -263,7 +284,7 @@ public class DialogHelper {
                 if (dialogListener != null) {
                     dialogListener.onCancel();
                 }
-                stopDialog();
+                stopDialog(oleDialog.context);
             }
         });
         dialog = oleDialog.dialog;
@@ -273,6 +294,10 @@ public class DialogHelper {
     }
 
     public static void showCallPhoneDialog(Context context, final DialogListener dialoglListener) {
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
+
         OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_callphone)
                 .setListener(dialoglListener);
         dialog = oleDialog.dialog;
@@ -282,27 +307,38 @@ public class DialogHelper {
     }
 
     /**
-     * @desc  支付优化loading弹出框
      * @param context
+     * @desc 支付优化loading弹出框
      */
     public static void showPayLoading(final Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context,R.style.dialog);
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.dialog);
         LayoutInflater inLayout = LayoutInflater.from(context);
-        View v = inLayout.inflate(R.layout.dialog_pay_loading,null);
+        View v = inLayout.inflate(R.layout.dialog_pay_loading, null);
 
         builder.setView(v);
         dialog = builder.create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
-        if (null != dialog && !dialog.isShowing()){
+        if (null != dialog && !dialog.isShowing()) {
             dialog.show();
         }
     }
 
-    public synchronized static void stopDialog() {
+    public synchronized static void stopDialog(Context context) {
         if (null != dialog) {
-            dialog.dismiss();
-            dialog = null;
+            if (context instanceof Activity) {
+                if (!((Activity) context).isFinishing()) {
+                    dialog.dismiss();
+                    dialog = null;
+                }
+            } else {
+                dialog.dismiss();
+                dialog = null;
+            }
         }
     }
 

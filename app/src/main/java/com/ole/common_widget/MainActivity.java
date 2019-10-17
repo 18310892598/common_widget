@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.List;
 
+import ola.com.dialog.DialogHelper;
 import ola.com.pickerview.builder.OptionsPickerBuilder;
 import ola.com.pickerview.interfaces.IPickerViewData;
 import ola.com.pickerview.listener.OnOptionsSelectListener;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         });
 //        showTimePicker(false);
 
+
+        DialogHelper.showDialogCheckNotify(this,null);
     }
 
 

@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -15,9 +14,11 @@ import androidx.lifecycle.OnLifecycleEvent;
 
 public class OleDialog {
 
+    public Context context;
+
     public View holder;
-    public AppCompatTextView btOk;
-    public AppCompatTextView btCancel;
+    public TextView btOk;
+    public TextView btCancel;
     public TextView tvTitle;
     public TextView tvContent;
 
@@ -36,6 +37,8 @@ public class OleDialog {
     public static OleDialog getInstance(Context context, int layout) {
         final OleDialog dialog = new OleDialog();
 
+        dialog.context = context;
+
         LayoutInflater inLayout = LayoutInflater.from(context);
         dialog.holder = inLayout.inflate(layout, null);
         dialog.btOk = dialog.holder.findViewById(R.id.bt_ok);
@@ -50,7 +53,7 @@ public class OleDialog {
             dialog.ivClose.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DialogHelper.stopDialog();
+                    DialogHelper.stopDialog(dialog.context);
                 }
             });
         }
@@ -106,7 +109,7 @@ public class OleDialog {
             btOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DialogHelper.stopDialog();
+                    DialogHelper.stopDialog(context);
                     if (dialogListener != null) {
                         dialogListener.onOk();
                     }
@@ -117,7 +120,7 @@ public class OleDialog {
             btCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DialogHelper.stopDialog();
+                    DialogHelper.stopDialog(context);
                     if (dialogListener != null) {
                         dialogListener.onCancel();
                     }
