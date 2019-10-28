@@ -1,14 +1,23 @@
 package com.ole.common_widget;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import ola.com.dialog.DialogHelper;
 import ola.com.pickerview.builder.OptionsPickerBuilder;
@@ -25,18 +34,144 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.tv1).setOnClickListener(new View.OnClickListener() {
+        final DialogHelper.DialogListener dl = new DialogHelper.DialogListener() {
             @Override
-            public void onClick(View view) {
-                showTimePicker(false);
+            public void onCancel() {
+                Toast.makeText(getActivity(), "cancel", Toast.LENGTH_SHORT).show();
             }
-        });
-//        showTimePicker(false);
 
+            @Override
+            public void onOk() {
+                Toast.makeText(getActivity(), "ok", Toast.LENGTH_SHORT).show();
+            }
+        };
 
-        DialogHelper.showDialogCheckNotify(this,null);
+        final List<ItemBean> data = new ArrayList<>();
+
+        data.add(new ItemBean("showDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showDialog(getActivity(), "title",
+                        "content", "ok", "cancel", dl);
+            }
+        }));
+
+        data.add(new ItemBean("showDialogRequest", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showDialogRequest(getActivity(), "title",
+                        "content", "ok", "cancel", dl);
+            }
+        }));
+
+        data.add(new ItemBean("showDialogCommon", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showDialogCommon(getActivity(), "title",
+                        "content", "ok", "cancel", dl);
+            }
+        }));
+
+        data.add(new ItemBean("showDialogImgCommon", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showDialogImgCommon(getActivity(),
+                        "content", "ok", "cancel", dl);
+            }
+        }));
+
+        data.add(new ItemBean("giveCoupon", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.giveCoupon(getActivity(), dl);
+            }
+        }));
+
+        data.add(new ItemBean("showDialogCheckVersion", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showDialogCheckVersion(getActivity(), dl,"1.0.0",
+                        "0","0","detail",false);
+            }
+        }));
+
+        data.add(new ItemBean("showDialogCheckNotify", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showDialogCheckNotify(getActivity(), dl);
+            }
+        }));
+
+        data.add(new ItemBean("showCallPhoneDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showCallPhoneDialog(getActivity(), dl);
+            }
+        }));
+
+        data.add(new ItemBean("showPayLoading", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showPayLoading(getActivity());
+
+                Executors.newSingleThreadExecutor().submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                DialogHelper.stopDialog();
+                            }
+                        });
+                    }
+                });
+            }
+        }));
+
+        data.add(new ItemBean("showTimePicker", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePicker(true);
+            }
+        }));
+
+        ListView lv = findViewById(R.id.lv);
+        ArrayAdapter<ItemBean> adapter = new ArrayAdapter<ItemBean>(this, R.layout.item){
+
+            @Override
+            public int getCount() {
+                return data.size();
+            }
+
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                final ItemBean item = data.get(position);
+                @SuppressLint("ViewHolder") View view = LayoutInflater.from(getActivity()).inflate(R.layout.item,parent,false);
+                TextView tv = view.findViewById(R.id.tv);
+                tv.setText(item.name);
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        item.onClickListener.onClick(v);
+                    }
+                });
+                return view;
+            }
+        };
+        lv.setAdapter(adapter);
+
     }
 
+    private MainActivity getActivity() {
+        return this;
+    }
 
     public void showTimePicker(final boolean resetPrice) {
 
@@ -101,18 +236,28 @@ public class MainActivity extends AppCompatActivity {
                     result += points.substring(0, 2);
                 }
 
-                Toast.makeText(MainActivity.this,result,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
         }).setCancelColor(ContextCompat.getColor(MainActivity.this, R.color.textcolor_7B7F83))
                 .setSubmitColor(ContextCompat.getColor(MainActivity.this, R.color.textcolor_ff))
                 .setTitleText("请选择用车时间")
-                .setLayoutRes(R.layout.pickerview_timer_options3, null)
+                .setLayoutRes(R.layout.pickerview_timer_options, null)
                 .setLineSpacingMultiplier(2.7f)
                 .build();
 
         builder.setSelectOptions(0, 0, 0);
         builder.setPicker(dayList, hourList, minuteList);
         builder.show();
+    }
+
+    public class ItemBean {
+        public String name;
+        public View.OnClickListener onClickListener;
+
+        public ItemBean(String name, View.OnClickListener onClickListener) {
+            this.name = name;
+            this.onClickListener = onClickListener;
+        }
     }
 
 }

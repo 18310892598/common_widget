@@ -31,4 +31,5 @@ dependencies {
 
     api 'com.ole.travel:widget:1.0.7'
 
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
