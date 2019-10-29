@@ -15,10 +15,6 @@ import ola.com.pickerview.view.OptionsPickerView;
 import ola.com.pickerview.view.WheelView;
 
 
-/**
- * Created by xiaosongzeem on 2018/3/20.
- */
-
 public class OptionsPickerBuilder {
 
     //配置类

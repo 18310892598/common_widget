@@ -13,12 +13,6 @@ import java.util.GregorianCalendar;
 
 import ola.com.pickerview.interfaces.IPickerViewData;
 
-/**
- * Created by 于浩 on 2018/9/18.
- *
- * @TODO:
- */
-
 public class Methods {
     static int TIME = 25-2;//需要跨天的分钟数
     /**

@@ -22,10 +22,6 @@ import ola.com.pickerview.listener.OnDismissListener;
 import ola.com.pickerview.utils.PickerViewAnimateUtil;
 
 
-/**
- * Created by Sai on 15/11/22.
- * 精仿iOSPickerViewController控件
- */
 public class BasePickerView {
 
     private Context context;

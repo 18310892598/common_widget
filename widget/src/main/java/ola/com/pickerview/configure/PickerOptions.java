@@ -16,11 +16,6 @@ import ola.com.pickerview.listener.OnTimeSelectChangeListener;
 import ola.com.pickerview.listener.OnTimeSelectListener;
 import ola.com.pickerview.view.WheelView;
 
-/**
- * Build Options
- * Created by xiaosongzeem on 2018/3/8.
- */
-
 public class PickerOptions {
 
     //constant

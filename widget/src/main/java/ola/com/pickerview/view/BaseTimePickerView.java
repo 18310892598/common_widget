@@ -16,10 +16,6 @@ import ola.com.pickerview.listener.OnDismissListener;
 import ola.com.pickerview.utils.PickerViewAnimateUtil;
 
 
-/**
- * Created by Sai on 15/11/22.
- * 精仿iOSPickerViewController控件
- */
 public class BaseTimePickerView {
     private final FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM
