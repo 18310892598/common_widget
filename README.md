@@ -50,3 +50,30 @@ if (null != dialog && !dialog.isShowing()) {
 8.showPayLoading
 
 ![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l37vmmy1j30cm0pddgj.jpg)
+
+
+二、时间选择器
+——TimePickerView 时间选择器，支持年月日时分，年月日，年月，时分等格式。
+——OptionsPickerView 选项选择器，支持一，二，三级选项选择，并且可以设置是否联动 。
+
+//时间选择器
+TimePickerView pvTime = new TimePickerBuilder(MainActivity.this, new OnTimeSelectListener() {
+                           @Override
+                           public void onTimeSelect(Date date, View v) {
+                               Toast.makeText(MainActivity.this, getTime(date), Toast.LENGTH_SHORT).show();
+                           }
+                       }).build();
+
+//条件选择器
+ OptionsPickerView pvOptions = new OptionsPickerBuilder(MainActivity.this, new OnOptionsSelectListener() {
+            @Override
+            public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
+                //返回的分别是三个级别的选中位置
+                String tx = options1Items.get(options1).getPickerViewText()
+                        + options2Items.get(options1).get(option2)
+                        + options3Items.get(options1).get(option2).get(options3).getPickerViewText();
+                tvOptions.setText(tx);
+            }
+        }).build();
+ pvOptions.setPicker(options1Items, options2Items, options3Items);
+ pvOptions.show(); 
