@@ -26,20 +26,20 @@ public class DialogHelper {
 
     private static Dialog dialog;
 
-    public void showDialog(Context context, String title, String content) {
+    public synchronized void showDialog(Context context, String title, String content) {
         showDialog(context, title, content, null);
     }
 
-    public static void showDialog(Context context, String title, String content, final DialogListener dialogListener) {
+    public synchronized static void showDialog(Context context, String title, String content, final DialogListener dialogListener) {
         showDialog(context, title, content, context.getString(android.R.string.ok), context.getString(android.R.string.cancel), dialogListener);
     }
 
 
-    public static void showDialog(Context context, String title, String content, String okTitle, String cancelTitle, final DialogListener dialogListener) {
+    public synchronized static void showDialog(Context context, String title, String content, String okTitle, String cancelTitle, final DialogListener dialogListener) {
         showDialog(context, false, title, content, okTitle, cancelTitle, dialogListener);
     }
 
-    public static void showDialog(Context cont, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialogListener) {
+    public synchronized static void showDialog(Context cont, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialogListener) {
         if (cont instanceof Activity && ((Activity) cont).isFinishing()) {
             return;
         }
@@ -71,7 +71,7 @@ public class DialogHelper {
                 }
             }
         });
-
+        stopDialog(context);
         dialog = builder.create();
         if (notCanceled) {
             dialog.setCanceledOnTouchOutside(false);
@@ -82,7 +82,7 @@ public class DialogHelper {
         }
     }
 
-    private static void showDialogBase(int layout, Context context, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
+    private synchronized static void showDialogBase(int layout, Context context, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
         }
@@ -90,6 +90,7 @@ public class DialogHelper {
                 .setResource(title, content, okTitle, cancelTitle)
                 .setListener(dialoglListener)
                 .setTouchCancelable(!notCanceled);
+        stopDialog(context);
         dialog = oleDialog.dialog;
         if (null != dialog && !dialog.isShowing()) {
             dialog.show();
@@ -105,15 +106,15 @@ public class DialogHelper {
      * @desc 自定义dialog布局（注意布局需要ID以为dialog_common的设置保持一致）
      * @authro hyx
      */
-    public static void showDialogRequest(Context context, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
+    public synchronized static void showDialogRequest(Context context, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
         showDialogRequest(context, false, title, content, okTitle, cancelTitle, dialoglListener);
     }
 
-    public static void showDialogRequest(Context context, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
+    public synchronized static void showDialogRequest(Context context, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
         showDialogBase(R.layout.dialog_custom_request, context, notCanceled, title, content, okTitle, cancelTitle, dialoglListener);
     }
 
-    public static void showDialogIKnow(Context context, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
+    public synchronized static void showDialogIKnow(Context context, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
         showDialogBase(R.layout.dialog_custom_ikonw, context, notCanceled, title, content, okTitle, cancelTitle, dialoglListener);
     }
     /**
@@ -125,15 +126,15 @@ public class DialogHelper {
      * @desc 自定义dialog布局（注意布局需要ID以为dialog_common的设置保持一致）
      * @authro hyx
      */
-    public static void showDialogCommon(Context context, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
+    public synchronized static void showDialogCommon(Context context, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
         showDialogBase(ola.com.dialog.R.layout.dialog_custom, context, true, title, content, okTitle, cancelTitle, dialoglListener);
     }
 
-    public static void showDialogImgCommon(final Context context, String content, String okbtn, String cancelBtn) {
+    public synchronized static void showDialogImgCommon(final Context context, String content, String okbtn, String cancelBtn) {
         showDialogImgCommon(context, content, okbtn, cancelBtn, 0, true, null);
     }
 
-    public static void showDialogImgCommon(final Context context, String content, String okbtn, String cancelBtn, final DialogListener dialoglListener) {
+    public synchronized static void showDialogImgCommon(final Context context, String content, String okbtn, String cancelBtn, final DialogListener dialoglListener) {
         showDialogImgCommon(context, content, okbtn, cancelBtn, 0, true, dialoglListener);
     }
 
@@ -143,7 +144,7 @@ public class DialogHelper {
 //     * @param hideCloseImg 是否需要显示closeImg
 //     * @desc 通用带黄感叹号弹出框
 //     */
-    public static void showDialogImgCommon(final Context context, String content, String okbtn,
+    public synchronized static void showDialogImgCommon(final Context context, String content, String okbtn,
                                            String cancelBtn, int offset, boolean hideCloseImg,
                                            final DialogListener dialoglListener) {
 
@@ -173,7 +174,7 @@ public class DialogHelper {
         if (TextUtils.isEmpty(cancelBtn)) {
             oleDialog.btCancel.setVisibility(View.GONE);
         }
-
+        stopDialog(context);
         dialog = oleDialog.dialog;
 
         if (null != dialog && !dialog.isShowing()) {
@@ -187,21 +188,21 @@ public class DialogHelper {
      * @desc 赠送优惠券弹出框
      */
 
-    public static void giveCoupon(final Context context, final DialogListener dialoglListener) {
+    public synchronized static void giveCoupon(final Context context, final DialogListener dialoglListener) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
         }
         OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_img_custom_coupon)
                 .setListener(dialoglListener)
                 .setTouchCancelable(false);
-
+        stopDialog(context);
         dialog = oleDialog.dialog;
         if (null != dialog && !dialog.isShowing()) {
             dialog.show();
         }
     }
 
-    public static void showDialogCheckVersion(Context context, final DialogListener dialoglListener,
+    public synchronized static void showDialogCheckVersion(Context context, final DialogListener dialoglListener,
                                               String versionCode, String packSize, String updateTime,
                                               String detail, boolean isMust) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
@@ -248,7 +249,7 @@ public class DialogHelper {
                 dialog.dismiss();
             }
         });
-
+        stopDialog(context);
         dialog = oleDialog.dialog;
         if (null != dialog && !dialog.isShowing()) {
             dialog.show();
@@ -256,7 +257,7 @@ public class DialogHelper {
     }
 
     //todo ok替换
-    public static void showDialogCheckNotify(Context context, DialogListener listener) {
+    public synchronized static void showDialogCheckNotify(Context context, DialogListener listener) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
         }
@@ -287,19 +288,21 @@ public class DialogHelper {
                 stopDialog(oleDialog.context);
             }
         });
+        stopDialog(context);
         dialog = oleDialog.dialog;
         if (null != dialog && !dialog.isShowing()) {
             dialog.show();
         }
     }
 
-    public static void showCallPhoneDialog(Context context, final DialogListener dialoglListener) {
+    public synchronized static void showCallPhoneDialog(Context context, final DialogListener dialoglListener) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
         }
 
         OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_callphone)
                 .setListener(dialoglListener);
+        stopDialog(context);
         dialog = oleDialog.dialog;
         if (null != dialog && !dialog.isShowing()) {
             dialog.show();
@@ -310,7 +313,7 @@ public class DialogHelper {
      * @param context
      * @desc 支付优化loading弹出框
      */
-    public static void showPayLoading(final Context context) {
+    public synchronized static void showPayLoading(final Context context) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
         }
@@ -320,6 +323,7 @@ public class DialogHelper {
         View v = inLayout.inflate(R.layout.dialog_pay_loading, null);
 
         builder.setView(v);
+        stopDialog(context);
         dialog = builder.create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
