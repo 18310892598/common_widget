@@ -14,10 +14,6 @@ import java.util.List;
 import ola.com.dialog.R;
 import ola.com.pickerview.configure.PickerOptions;
 
-/**
- * 条件选择器
- * Created by Sai on 15/11/22.
- */
 public class OptionsPickerView<T> extends BasePickerView implements View.OnClickListener {
 
     private WheelOptions wheelOptions;

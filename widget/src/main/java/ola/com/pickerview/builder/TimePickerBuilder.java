@@ -15,10 +15,6 @@ import ola.com.pickerview.listener.OnTimeSelectListener;
 import ola.com.pickerview.view.TimePickerView;
 import ola.com.pickerview.view.WheelView;
 
-/**
- * Created by xiaosongzeem on 2018/3/20.
- */
-
 public class TimePickerBuilder {
 
     private PickerOptions mPickerOptions;

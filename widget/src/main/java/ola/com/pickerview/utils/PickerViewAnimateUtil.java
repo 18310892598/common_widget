@@ -5,9 +5,6 @@ import android.view.Gravity;
 import ola.com.dialog.R;
 
 
-/**
- * Created by Sai on 15/8/9.
- */
 public class PickerViewAnimateUtil {
     private static final int INVALID = -1;
     /**

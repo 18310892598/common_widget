@@ -3,7 +3,6 @@ package ola.com.pickerview.adapter;
 import java.util.List;
 
 /**
- * @author unknown
  * @param <T> the element type
  */
 public class ArrayWheelAdapter<T> implements WheelAdapter {

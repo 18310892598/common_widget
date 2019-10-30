@@ -13,7 +13,6 @@ import ola.com.dialog.R;
 
 /**
  * 条件选择器
- * Created by Sai on 15/11/22.
  */
 public class OptionsTimePickerView<T> extends BaseTimePickerView implements View.OnClickListener {
     WheelTimeOptions<T> wheelOptions;

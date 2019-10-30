@@ -8,8 +8,6 @@ import ola.com.pickerview.view.WheelView;
 
 /**
  * 平滑滚动的实现
- *
- * @author 小嵩
  */
 public final class SmoothScrollTimerTask<T> extends TimerTask {
 

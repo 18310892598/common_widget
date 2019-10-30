@@ -8,9 +8,6 @@ import ola.com.pickerview.view.WheelView;
 
 /**
  * 滚动惯性的实现
- *
- * @author 小嵩
- * date:  2017-12-23 23:20:44
  */
 public final class InertiaTimerTask<T> extends TimerTask {
 

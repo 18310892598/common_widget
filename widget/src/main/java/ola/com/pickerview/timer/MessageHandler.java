@@ -8,9 +8,6 @@ import ola.com.pickerview.view.WheelView;
 
 /**
  * Handler 消息类
- *
- * @author 小嵩
- * date: 2017-12-23 23:20:44
  */
 public final class MessageHandler<T> extends Handler {
     public static final int WHAT_INVALIDATE_LOOP_VIEW = 1000;
