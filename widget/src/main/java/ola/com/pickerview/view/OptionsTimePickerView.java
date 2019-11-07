@@ -155,4 +155,8 @@ public class OptionsTimePickerView<T> extends BaseTimePickerView implements View
     public void setbtnSubmit(String str){
         ((Button)btnSubmit).setText(str);
     }
+
+    public void setitemsVisibleCount(int itemsVisible){
+        wheelOptions.setitemsVisibleCount(itemsVisible);
+    }
 }

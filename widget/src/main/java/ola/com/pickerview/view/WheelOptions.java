@@ -443,4 +443,10 @@ public class WheelOptions<T> {
     public void setLinkage(boolean linkage) {
         this.linkage = linkage;
     }
+
+    public void setitemsVisibleCount(int itemsVisible){
+        wvOption1.setitemsVisibleCount(itemsVisible);
+        wvOption2.setitemsVisibleCount(itemsVisible);
+        wvOption3.setitemsVisibleCount(itemsVisible);
+    }
 }
