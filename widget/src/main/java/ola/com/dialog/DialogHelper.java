@@ -117,6 +117,7 @@ public class DialogHelper {
     public synchronized static void showDialogIKnow(Context context, boolean notCanceled, String title, String content, String okTitle, String cancelTitle, final DialogListener dialoglListener) {
         showDialogBase(R.layout.dialog_custom_ikonw, context, notCanceled, title, content, okTitle, cancelTitle, dialoglListener);
     }
+
     /**
      * @param context     上下文
      * @param title       标题
@@ -144,9 +145,9 @@ public class DialogHelper {
 //     * @param hideCloseImg 是否需要显示closeImg
 //     * @desc 通用带黄感叹号弹出框
 //     */
-    public synchronized static void showDialogImgCommon(final Context context, String content, String okbtn,
-                                           String cancelBtn, int offset, boolean hideCloseImg,
-                                           final DialogListener dialoglListener) {
+    public synchronized static void showDialogImgCommon(Context context, String content, String okbtn,
+                                                        String cancelBtn, int offset, boolean hideCloseImg,
+                                                        final DialogListener dialoglListener) {
 
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
@@ -203,8 +204,8 @@ public class DialogHelper {
     }
 
     public synchronized static void showDialogCheckVersion(Context context, final DialogListener dialoglListener,
-                                              String versionCode, String packSize, String updateTime,
-                                              String detail, boolean isMust) {
+                                                           String versionCode, String packSize, String updateTime,
+                                                           String detail, boolean isMust) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
         }
@@ -295,7 +296,7 @@ public class DialogHelper {
         }
     }
 
-    public synchronized static void showCallPhoneDialog(Context context, final DialogListener dialoglListener) {
+    public synchronized static void showCallPhoneDialog(Context context, DialogListener dialoglListener) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
         }
@@ -313,7 +314,7 @@ public class DialogHelper {
      * @param context
      * @desc 支付优化loading弹出框
      */
-    public synchronized static void showPayLoading(final Context context) {
+    public synchronized static void showPayLoading(Context context) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
         }
@@ -330,6 +331,21 @@ public class DialogHelper {
         if (null != dialog && !dialog.isShowing()) {
             dialog.show();
         }
+    }
+
+    public synchronized static void showBlueNotFoundDialog(Context context, DialogListener dialoglListener) {
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
+
+        OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_blue_not_found)
+                .setListener(dialoglListener);
+        stopDialog(context);
+        dialog = oleDialog.dialog;
+        if (null != dialog && !dialog.isShowing()) {
+            dialog.show();
+        }
+
     }
 
     public synchronized static void stopDialog(Context context) {

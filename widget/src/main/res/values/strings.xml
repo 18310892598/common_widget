@@ -33,4 +33,6 @@
     <string name="dia_content_location_failed_2">请在设置-隐私-定位服务中打开定位服务，并允许欧了司机使用定位服务。</string>
     <string name="dia_content_pick_alert">滑动去接乘客后，将无法返回，确定现在去接乘客吗？</string>
     <string name="dia_content_permission_1">系统检测到您缺少必要权限，无法进行相应任务，请前往手机设置中心开启相应权限。</string>
+    <string name="dia_content_blue_not_found">未搜到当前车辆车载蓝牙\n请与司机沟通后在手机设置中连接</string>
+
 </resources>

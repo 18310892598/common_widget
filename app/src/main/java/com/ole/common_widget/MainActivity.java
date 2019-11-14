@@ -124,6 +124,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
+        data.add(new ItemBean("showBlueNotFoundDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showBlueNotFoundDialog(getActivity(), dl);
+            }
+        }));
+
         data.add(new ItemBean("showPayLoading", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
