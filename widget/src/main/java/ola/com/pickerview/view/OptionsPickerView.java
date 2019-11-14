@@ -187,4 +187,8 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
     public boolean isDialog() {
         return mPickerOptions.isDialog;
     }
+
+    public void setitemsVisibleCount(int itemsVisible){
+        wheelOptions.setitemsVisibleCount(itemsVisible);
+    }
 }

@@ -584,4 +584,8 @@ public class WheelTimerView extends View {
         }
         return iRet;
     }
+
+    public void setitemsVisibleCount(int itemsVisible){
+        this.itemsVisible = itemsVisible;
+    }
 }

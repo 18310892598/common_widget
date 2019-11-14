@@ -798,4 +798,8 @@ public class WheelView extends View {
     public Handler getHandler() {
         return handler;
     }
+
+    public void setitemsVisibleCount(int itemsVisible){
+        this.itemsVisible = itemsVisible;
+    }
 }

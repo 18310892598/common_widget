@@ -24,6 +24,7 @@ public class WheelTimeOptions<T> {
     private OnItemSelectedListener wheelListenerOption2;
     private OnItemSelectedListener wheelListenerOption3;
     private OnSelectChangeListener2 onSelectChangeListener2;
+    private int itemsVisible;
 
 	public View getView() {
 		return view;
@@ -91,6 +92,9 @@ public class WheelTimeOptions<T> {
 		wvOption1.setTextSize(textSize);
 		wvOption2.setTextSize(textSize);
 		wvOption3.setTextSize(textSize);
+		wvOption1.setitemsVisibleCount(itemsVisible);
+		wvOption2.setitemsVisibleCount(itemsVisible);
+		wvOption3.setitemsVisibleCount(itemsVisible);
 
 		if (this.mOptions2Items == null) {
 			wvOption2.setVisibility(View.GONE);
@@ -242,5 +246,9 @@ public class WheelTimeOptions<T> {
 		}
 	}
 
-
+	public void setitemsVisibleCount(int itemsVisible){
+		wvOption1.setitemsVisibleCount(itemsVisible);
+		wvOption2.setitemsVisibleCount(itemsVisible);
+		wvOption3.setitemsVisibleCount(itemsVisible);
+	}
 }
