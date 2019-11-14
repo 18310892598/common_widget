@@ -33,5 +33,10 @@
         <item name="android:windowExitAnimation">@anim/pickerview_slide_out_bottom</item>
     </style>
 
+    <style name="OlaBaseDialog" parent="android:Theme.Holo.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
 
 </resources>

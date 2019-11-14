@@ -10,6 +10,14 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        compileOptions {
+
+            sourceCompatibility JavaVersion.VERSION_1_8
+
+            targetCompatibility JavaVersion.VERSION_1_8
+
+        }
     }
     buildTypes {
         release {
@@ -28,8 +36,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     api 'androidx.cardview:cardview:1.0.0'
-
-    api 'com.ole.travel:widget:1.0.7'
-
+    implementation project(path: ':widget')
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }

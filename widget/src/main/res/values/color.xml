@@ -35,4 +35,34 @@
     <color name="pickerview_submit_text_color">#FAA359</color>
     <color name="pickerview_title_text_color">#1A78EC</color>
     <color name="pickerview_center_text_color">#333333</color>
+
+
+    <color name="dia_white">#fff</color>
+    <color name="dia_white_ed">#ededed</color>
+    <color name="dia_white_e7">#e7e7e7</color>
+
+    <color name="dia_black">#000</color>
+    <color name="dia_black_232931">#232931</color>
+    <color name="dia_black_2b2d33">#2b2d33</color>
+    <color name="dia_black_333">#333333</color>
+    <color name="dia_black_25">#252525</color>
+
+    <color name="dia_gray_ccc">#ccc</color>
+    <color name="dia_gray_4a">#4a4a4a</color>
+    <color name="dia_gray_4f545a">#4f545a</color>
+    <color name="dia_gray_999">#999</color>
+    <color name="dia_gray_666">#666666</color>
+    <color name="dia_gray_4F545A">#4F545A</color>
+    <color name="dia_gray_A7A9AD">#A7A9AD</color>
+
+    <color name="dia_blue_B1D0FF">#B1D0FF</color>
+    <color name="dia_blue_284ffb">#284ffb</color>
+    <color name="dia_blue_3b6ae7">#3B6AE7</color>
+    <color name="dia_blue_86a7fe">#86A7FE</color>
+    <color name="dia_blue_5c9bf5">#5c9bf5</color>
+    <color name="dia_blue_0076ff">#0076ff</color>
+
+    <color name="dia_green_14a83e">#14A83E</color>
+
+
 </resources>
