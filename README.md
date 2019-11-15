@@ -161,9 +161,10 @@ pvOptions = new  OptionsPickerBuilder(this, new OptionsPickerView.OnOptionsSelec
     pvOptions.setPicker(options1Items, options2Items, options3Items);//添加数据源
 ```
     
-四.OlaBaseFourDialog
+四、OlaBaseFourDialog
 这个包下的内容通常包含4个元素（标题、正文、确定、取消），可能会多（设置图片、设置时间什么的），也可能会少。
 使用示例为：
+
 ```javascript
 Objects.requireNonNull(OlaDialog.getInstance(RestTimeTipDialog.class, this,
 "title", "content", "negative", "positive"))
@@ -172,9 +173,11 @@ Objects.requireNonNull(OlaDialog.getInstance(RestTimeTipDialog.class, this,
 Objects.requireNonNull(OlaDialog.getInstance(LocationClosedDialog.class,this))
 .showDialog(getSupportFragmentManager());
 ```
+
 showDialog也可以添加第二个参数，用于确认键（onClickListener）\确认和取消键(callback.DialogListener)的点击事件。
 
 如需添加其他Argument参数，可以这样使用：
+
 ```javascript
 RestTimeTipDialog restTimeTipDialog = Objects.requireNonNull(OlaDialog.getInstance(RestTimeTipDialog.class, this,
 "title", "content", "negative", "positive"));
@@ -183,6 +186,7 @@ restTimeTipDialog.getArguments().putLong("time", 20000);
 }
 restTimeTipDialog.showDialog(getSupportFragmentManager(), null);
 ```
+
 使用不同的对话框时，只需要替换对应的Class即可。
 
 对应的效果图如下，内容可能为默认内容
@@ -190,35 +194,51 @@ restTimeTipDialog.showDialog(getSupportFragmentManager(), null);
 效果图
 ola.com.dialogs.
 dialog.PermissionDialog
+
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-1-49.png?version=1&modificationDate=1567749709000&api=v2)
+
 ola.com.dialogs.
 dialog.LocationClosedDialog
+
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-0-19.png?version=1&modificationDate=1567749619000&api=v2)
+
 ola.com.dialogs.
 dialog.LocationFailedDialog
+
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-3-55.png?version=1&modificationDate=1567749835000&api=v2)
+
 ola.com.dialogs.
 dialog.CantChangeDestinationTipDialog
+
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-4-59.png?version=1&modificationDate=1567749899000&api=v2)
+
 ola.com.dialogs.
 dialog.ConfirmChangeDestinationDialog
+
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-7-21.png?version=1&modificationDate=1567750042000&api=v2)
+
 ola.com.dialogs.
 dialog.RestTimeTipDialog
+
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-10-3.png?version=1&modificationDate=1567750203000&api=v2)
+
 ola.com.dialogs.
 dialog.CustomRequestDialog
+
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-9_16-25-51.png?version=1&modificationDate=1568017552000&api=v2)
 
-五.Toast
+
+五、Toast
 使用示例：
+
 ```javascript
 OlaToast.show(context,content);
 ```
 
-六. 其他弹窗
+六、其他弹窗
 1.UpdateDialogHelper
 使用示例：
+
 ```javascript
 UpdateDialogHelper.showDialogCheckVersion(
 context, new UpdateDialogHelper.DialogListener() {
@@ -228,6 +248,8 @@ public void onCancel() {...}
 public void onOk() {...}
 },versionNo,size,startTime,content,mustUpdate,app);
 ```
+
 效果图：
+
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-14-7.png?version=1&modificationDate=1567750447000&api=v2)
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-14-41.png?version=1&modificationDate=1567750482000&api=v2)
