@@ -120,7 +120,7 @@ TimePickerView pvTime = new TimePickerBuilder(MainActivity.this, new OnTimeSelec
                 .isDialog(true)//是否显示为对话框样式
                 .build();
 ```
- ```javascript
+```javascript
 pvOptions = new  OptionsPickerBuilder(this, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
@@ -159,9 +159,9 @@ pvOptions = new  OptionsPickerBuilder(this, new OptionsPickerView.OnOptionsSelec
                 .build();
                 
     pvOptions.setPicker(options1Items, options2Items, options3Items);//添加数据源
-    ```
+```
     
-    一.OlaBaseFourDialog
+四.OlaBaseFourDialog
 这个包下的内容通常包含4个元素（标题、正文、确定、取消），可能会多（设置图片、设置时间什么的），也可能会少。
 使用示例为：
 ```javascript
@@ -210,13 +210,13 @@ ola.com.dialogs.
 dialog.CustomRequestDialog
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-9_16-25-51.png?version=1&modificationDate=1568017552000&api=v2)
 
-二.Toast
+五.Toast
 使用示例：
 ```javascript
 OlaToast.show(context,content);
 ```
 
-三. 其他弹窗
+六. 其他弹窗
 1.UpdateDialogHelper
 使用示例：
 ```javascript
