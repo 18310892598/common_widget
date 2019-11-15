@@ -190,39 +190,31 @@ restTimeTipDialog.showDialog(getSupportFragmentManager(), null);
 使用不同的对话框时，只需要替换对应的Class即可。
 
 对应的效果图如下，内容可能为默认内容
-类路径
-效果图
-ola.com.dialogs.
+
 dialog.PermissionDialog
 
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-1-49.png?version=1&modificationDate=1567749709000&api=v2)
 
-ola.com.dialogs.
 dialog.LocationClosedDialog
 
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-0-19.png?version=1&modificationDate=1567749619000&api=v2)
 
-ola.com.dialogs.
 dialog.LocationFailedDialog
 
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-3-55.png?version=1&modificationDate=1567749835000&api=v2)
 
-ola.com.dialogs.
 dialog.CantChangeDestinationTipDialog
 
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-4-59.png?version=1&modificationDate=1567749899000&api=v2)
 
-ola.com.dialogs.
 dialog.ConfirmChangeDestinationDialog
 
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-7-21.png?version=1&modificationDate=1567750042000&api=v2)
 
-ola.com.dialogs.
 dialog.RestTimeTipDialog
 
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-10-3.png?version=1&modificationDate=1567750203000&api=v2)
 
-ola.com.dialogs.
 dialog.CustomRequestDialog
 
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-9_16-25-51.png?version=1&modificationDate=1568017552000&api=v2)
@@ -236,6 +228,7 @@ OlaToast.show(context,content);
 ```
 
 六、其他弹窗
+
 1.UpdateDialogHelper
 使用示例：
 
