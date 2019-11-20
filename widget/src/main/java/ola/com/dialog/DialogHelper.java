@@ -341,6 +341,8 @@ public class DialogHelper {
         OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_blue_not_found)
                 .setListener(dialoglListener);
         stopDialog(context);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
         dialog = oleDialog.dialog;
         if (null != dialog && !dialog.isShowing()) {
             dialog.show();
