@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         data.add(new ItemBean("showBlueNotFoundDialog", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogHelper.showBlueNotFoundDialog(getActivity(), dl);
+                DialogHelper.showBlueNotFoundDialog(getActivity(),"content", dl);
             }
         }));
 

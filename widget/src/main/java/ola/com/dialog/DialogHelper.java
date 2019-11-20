@@ -334,20 +334,26 @@ public class DialogHelper {
     }
 
     public synchronized static void showBlueNotFoundDialog(Context context, DialogListener dialoglListener) {
+        showBlueNotFoundDialog(context, null, dialoglListener);
+    }
+
+    public synchronized static void showBlueNotFoundDialog(Context context, String content, DialogListener dialoglListener) {
         if (context instanceof Activity && ((Activity) context).isFinishing()) {
             return;
         }
 
         OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_blue_not_found)
                 .setListener(dialoglListener);
+        if (!TextUtils.isEmpty(content)) {
+            oleDialog.tvContent.setText(content);
+        }
         stopDialog(context);
+        dialog = oleDialog.dialog;
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
-        dialog = oleDialog.dialog;
         if (null != dialog && !dialog.isShowing()) {
             dialog.show();
         }
-
     }
 
     public synchronized static void stopDialog(Context context) {
