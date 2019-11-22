@@ -1,2 +1,2 @@
-include ':app', ':widget', ':pickerview'
+include ':app', ':widget'
 rootProject.name='common_widget'
