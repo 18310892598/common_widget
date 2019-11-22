@@ -9,6 +9,7 @@
     <color name="blue_47">#474D66</color>
 
     <color name="textcolor_3E">#14A83E</color>
+    <color name="textcolor_FF">#415FFF</color>
 
     <color name="textcolor_5a">#4f545a</color>
     <color name="textcolor_ad">#a7a9ad</color>
@@ -16,6 +17,7 @@
     <color name="textcolor_7B7F83">#7B7F83</color>
     <color name="textcolor_ff">#ffffff</color>
     <color name="textcolor_bd">#bdbdbd</color>
+    <color name="textcolor_99">#999999</color>
 
 
     <!-- **************************pickerview选择器常用颜色值********************************** -->

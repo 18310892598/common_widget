@@ -183,6 +183,47 @@ public class DialogHelper {
         }
     }
 
+    public synchronized static void showDriverDialogImgCommon(Context context, String content, String title, String okBtn,
+                                                              String cancelBtn, boolean hideCloseImg, int titleImg,
+                                                              final DialogListener dialogListener) {
+
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
+
+        OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_title_img_custom)
+                .setResource(title, content, okBtn, cancelBtn)
+                .setListener(dialogListener)
+                .setTouchCancelable(false);
+
+        if (hideCloseImg && oleDialog.ivClose != null) {
+            oleDialog.ivClose.setVisibility(View.GONE);
+        }
+        if (titleImg != 0 && oleDialog.ivImg != null) {
+            oleDialog.ivImg.setImageResource(titleImg);
+        }
+
+        if (content != null && oleDialog.tvContent != null) {
+            SpannableString ss = new SpannableString(content);
+            ss.setSpan(new ForegroundColorSpan(ContextCompat.getColor(context, R.color.textcolor_FF)),
+                    content.length(), content.length(), SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+            oleDialog.tvContent.setText(ss);
+        }
+
+        if (TextUtils.isEmpty(okBtn)) {
+            oleDialog.btOk.setVisibility(View.GONE);
+        }
+        if (TextUtils.isEmpty(cancelBtn)) {
+            oleDialog.btCancel.setVisibility(View.GONE);
+        }
+        stopDialog(context);
+        dialog = oleDialog.dialog;
+
+        if (null != dialog && !dialog.isShowing()) {
+            dialog.show();
+        }
+    }
+
     /**
      * @param context
      * @param dialoglListener
