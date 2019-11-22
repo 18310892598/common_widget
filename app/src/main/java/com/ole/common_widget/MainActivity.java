@@ -94,7 +94,13 @@ public class MainActivity extends AppCompatActivity {
                         "content", "ok", "cancel", dl);
             }
         }));
-
+        data.add(new ItemBean("showDriverDialogImgCommon", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showDriverDialogImgCommon(getActivity(), "今日线下服务可运营时段为：12:30-14:30；18:30-19:30；21:30-06:30。", "当前时段不支持线下服务",
+                        "查看运营规则", "关闭", false, R.mipmap.dialog_icon_time, dl);
+            }
+        }));
         data.add(new ItemBean("giveCoupon", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         data.add(new ItemBean("showBlueNotFoundDialog", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogHelper.showBlueNotFoundDialog(getActivity(),"content", dl);
+                DialogHelper.showBlueNotFoundDialog(getActivity(), "content", dl);
             }
         }));
 
