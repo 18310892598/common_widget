@@ -130,6 +130,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
+        data.add(new ItemBean("showEncryptCallDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showEncryptCallDialog(getActivity(), dl,"13240356677");
+            }
+        }));
+
         data.add(new ItemBean("showBlueNotFoundDialog", new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -351,6 +351,24 @@ public class DialogHelper {
         }
     }
 
+    public synchronized static void showEncryptCallDialog(Context context, DialogListener dialoglListener,
+                                                        String content) {
+        if (context instanceof Activity && ((Activity) context).isFinishing()) {
+            return;
+        }
+
+        OleDialog oleDialog = OleDialog.getInstance(context, R.layout.dialog_callphone_encrypt)
+                .setListener(dialoglListener);
+
+        oleDialog.tvContent.setText(content);
+
+        stopDialog(context);
+        dialog = oleDialog.dialog;
+        if (null != dialog && !dialog.isShowing()) {
+            dialog.show();
+        }
+    }
+
     /**
      * @param context
      * @desc 支付优化loading弹出框
