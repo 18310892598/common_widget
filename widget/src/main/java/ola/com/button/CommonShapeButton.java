@@ -55,6 +55,7 @@ public class CommonShapeButton extends AppCompatButton {
      * 描边颜色
      */
     private int mStrokeColor = 0;
+    private int mNoSelectStrokeColor = 0;
 
     /**
      * 描边宽度
@@ -156,6 +157,7 @@ public class CommonShapeButton extends AppCompatButton {
         mPressedColor = typedArray.getColor(R.styleable.CommonShapeButton_csb_pressedColor, 0xFF666666);
         mNoSelectColor = typedArray.getColor(R.styleable.CommonShapeButton_csb_noSelectColor, 0xFF666666);
         mStrokeColor = typedArray.getColor(R.styleable.CommonShapeButton_csb_strokeColor, 0);
+        mNoSelectStrokeColor = typedArray.getColor(R.styleable.CommonShapeButton_csb_noSelectstrokeColor, 0);
         mStrokeWidth = typedArray.getDimensionPixelSize(R.styleable.CommonShapeButton_csb_strokeWidth, 0);
         mCornerRaius = typedArray.getDimensionPixelSize(R.styleable.CommonShapeButton_csb_cornerRadius, 0);
         mCornerPosition = typedArray.getInt(R.styleable.CommonShapeButton_csb_cornerPosition, -1);
@@ -220,7 +222,7 @@ public class CommonShapeButton extends AppCompatButton {
         //默认的透明边框不绘制，否则会导致没阴影
         if (mStrokeColor != 0) {
             normalGradientDrawable.setStroke(mStrokeWidth, mStrokeColor);
-            normalGradientDrawable2.setStroke(mStrokeWidth, mStrokeColor);
+            normalGradientDrawable2.setStroke(mStrokeWidth, mNoSelectStrokeColor);
         }
 
         //是否开启点击动效
@@ -231,9 +233,7 @@ public class CommonShapeButton extends AppCompatButton {
         if (mActiveEnable) {
             //5.0 以上水波效果
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                if (isSelected) {
-                    return new RippleDrawable(ColorStateList.valueOf(mPressedColor), normalGradientDrawable, null);
-                } else if (mNoSelectColor != 0) {
+                if (!isSelected && mNoSelectColor != 0) {
                     return new RippleDrawable(ColorStateList.valueOf(mPressedColor), normalGradientDrawable2, null);
                 } else {
                     return new RippleDrawable(ColorStateList.valueOf(mPressedColor), normalGradientDrawable, null);

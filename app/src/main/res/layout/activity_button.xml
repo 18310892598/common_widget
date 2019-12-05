@@ -17,7 +17,7 @@
             android:text="文本样式+填充颜色+圆角"
             android:textColor="#fff"
             app:csb_cornerRadius="50dp"
-            app:csb_fillColor="#00bc71" />
+            app:csb_fillColor="#415FFF" />
 
         <ola.com.button.CommonShapeButton
             android:id="@+id/button2"
@@ -25,7 +25,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:text="按钮样式+填充颜色+圆角"
+            android:text="按钮样式正常"
             android:textColor="#fff"
             app:csb_cornerRadius="50dp"
             app:csb_fillColor="@color/dia_green_14a83e"/>
@@ -36,7 +36,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:text="按钮样式+水波纹+填充颜色+圆角"
+            android:text="按钮样式+点击水波纹+是否可选中+圆角"
             android:textColor="#fff"
             app:csb_activeEnable="true"
             app:csb_cornerRadius="50dp"
@@ -45,14 +45,35 @@
             app:csb_noSelectColor="@color/dia_gray_4F545A"/>
 
         <ola.com.button.CommonShapeButton
+            android:id="@+id/button4"
+            style="@style/CommonShapeButtonStyle"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="按钮样式+图片"
+            android:textColor="#fff"
+            android:drawableLeft="@drawable/ic_changebtn_change"
+            app:csb_drawablePosition="left"
+            app:csb_activeEnable="true"
+            app:csb_cornerRadius="50dp"
+            app:csb_fillColor="@color/dia_green_14a83e"
+            app:csb_pressedColor="@color/color_108631"
+            app:csb_noSelectColor="@color/dia_gray_4F545A"/>
+
+        <ola.com.button.CommonShapeButton
+            android:id="@+id/button5"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:text="文本样式+填充颜色+描边"
-            android:textColor="#fff"
+            android:textColor="@drawable/selector_button_text_color"
             app:csb_activeEnable="true"
-            app:csb_fillColor="#00bc71"
-            app:csb_strokeColor="#000"
+            app:csb_fillColor="#fff"
+            app:csb_strokeColor="#232931"
+            app:csb_noSelectstrokeColor="@color/dia_gray_A7A9AD"
+            app:csb_cornerRadius="50dp"
+            app:csb_pressedColor="#04666666"
+            app:csb_noSelectColor="@color/textcolor_ff"
             app:csb_strokeWidth="1dp" />
 
         <ola.com.button.CommonShapeButton

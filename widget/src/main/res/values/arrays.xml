@@ -26,10 +26,16 @@
         <attr name="csb_fillColor" format="color"/>
         <!-- 按压颜色 -->
         <attr name="csb_pressedColor" format="color"/>
+        <!-- 按压文字颜色 -->
+        <attr name="csb_pressedTextColor" format="color"/>
         <!-- 未选中颜色 -->
         <attr name="csb_noSelectColor" format="color"/>
+        <!-- 未选中文字颜色 -->
+        <attr name="csb_noSelectTextColor" format="color"/>
         <!-- 描边颜色 -->
         <attr name="csb_strokeColor" format="color"/>
+        <!-- 描边颜色 -->
+        <attr name="csb_noSelectstrokeColor" format="color"/>
         <!-- 描边宽度 -->
         <attr name="csb_strokeWidth" format="dimension"/>
         <!-- 圆角大小 -->

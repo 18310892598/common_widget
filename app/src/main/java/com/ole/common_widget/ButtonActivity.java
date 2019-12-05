@@ -22,10 +22,25 @@ public class ButtonActivity extends AppCompatActivity {
                 findViewById(R.id.button2).setSelected(false);
             }
         });
+        findViewById(R.id.button3).setSelected(true);
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.button3).setSelected(!findViewById(R.id.button3).isSelected());
+            }
+        });
+        findViewById(R.id.button4).setSelected(true);
+        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.button4).setSelected(!findViewById(R.id.button4).isSelected());
+            }
+        });
+        findViewById(R.id.button5).setSelected(true);
+        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.button5).setSelected(!findViewById(R.id.button5).isSelected());
             }
         });
     }
