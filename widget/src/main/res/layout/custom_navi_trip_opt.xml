@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/shape_common_corner"
+    android:orientation="horizontal">
+
+    <ola.com.button.SlideDraghelperView
+        android:id="@+id/slide_right_view_draghelper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_slide_draghelper_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_common_corner_top">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/dia_ic_close" />
+
+            <TextView
+                android:id="@+id/tv_slide_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="常态"
+                android:scaleType="fitXY"
+                android:textColor="@color/textcolor_ff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40mm"
+                android:gravity="center"
+                android:textColor="@color/textcolor_ff"
+                android:textSize="34mm"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </ola.com.button.SlideDraghelperView>
+</LinearLayout>

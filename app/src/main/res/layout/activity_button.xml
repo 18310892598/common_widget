@@ -11,9 +11,9 @@
         android:orientation="vertical">
 
         <ola.com.button.CommonShapeButton
+            android:layout_marginTop="100dp"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp"
             android:text="文本样式+填充颜色+圆角"
             android:textColor="#fff"
             app:csb_cornerRadius="50dp"
@@ -29,6 +29,37 @@
             android:textColor="#fff"
             app:csb_cornerRadius="50dp"
             app:csb_fillColor="@color/dia_green_14a83e"/>
+
+        <ola.com.button.CommonShapeButton
+            style="@style/CommonShapeButtonStyle"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="按钮样式正常"
+            android:textColor="#fff"
+            app:csb_cornerRadius="50dp"
+            app:csb_fillColor="@color/dia_gray_A7A9AD"/>
+
+        <ola.com.button.CommonShapeButton
+            style="@style/CommonShapeButtonStyle"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="按钮样式正常"
+            android:drawableLeft="@drawable/ic_changebtn_change"
+            app:csb_drawablePosition="left"
+            android:textColor="#fff"
+            app:csb_cornerRadius="50dp"
+            app:csb_fillColor="@color/dia_gray_A7A9AD"/>
+
+        <ola.com.button.CommonShapeButton
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="按钮样式正常"
+            android:textColor="@color/dia_gray_A7A9AD"
+            app:csb_cornerRadius="50dp"
+            app:csb_fillColor="@color/textcolor_ff"/>
 
         <ola.com.button.CommonShapeButton
             android:id="@+id/button3"
@@ -86,6 +117,12 @@
             app:csb_endColor="#00bc71"
             app:csb_orientation="LEFT_RIGHT"
             app:csb_startColor="#8800bc71" />
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"/>
 
         <ola.com.button.CommonShapeButton
             android:layout_width="50dp"
