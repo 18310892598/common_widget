@@ -1,6 +1,7 @@
 package com.ole.common_widget;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
         };
 
         final List<ItemBean> data = new ArrayList<>();
+
+        data.add(new ItemBean("ButtonActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this,ButtonActivity.class));
+            }
+        }));
 
         data.add(new ItemBean("showDialog", new View.OnClickListener() {
             @Override
@@ -256,7 +264,6 @@ public class MainActivity extends AppCompatActivity {
                 }, "123", "45678", "0", "asdifjoqiwejroi", false, Configuration.APP_USER);
             }
         }));
-
 
         ListView lv = findViewById(R.id.lv);
         ArrayAdapter<ItemBean> adapter = new ArrayAdapter<ItemBean>(this, R.layout.item) {
