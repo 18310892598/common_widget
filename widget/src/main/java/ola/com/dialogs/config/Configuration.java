@@ -28,4 +28,48 @@ public class Configuration {
                 return 0;
         }
     }
+
+    public static int getTitleColor(short app) {
+        switch (app) {
+            case APP_DRIVER:
+                return R.color.dia_title_driver;
+            case APP_USER:
+                return R.color.dia_title_user;
+            default:
+                return 0;
+        }
+    }
+
+    public static int getContentColor(short app) {
+        switch (app) {
+            case APP_DRIVER:
+                return R.color.dia_content_driver;
+            case APP_USER:
+                return R.color.dia_content_user;
+            default:
+                return 0;
+        }
+    }
+
+    public static int getPositiveColor(short app) {
+        switch (app) {
+            case APP_DRIVER:
+                return R.color.dia_pos_driver;
+            case APP_USER:
+                return R.color.dia_pos_user;
+            default:
+                return 0;
+        }
+    }
+
+    public static int getNegativeColor(short app) {
+        switch (app) {
+            case APP_DRIVER:
+                return R.color.dia_neg_driver;
+            case APP_USER:
+                return R.color.dia_neg_user;
+            default:
+                return 0;
+        }
+    }
 }

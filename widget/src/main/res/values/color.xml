@@ -38,6 +38,16 @@
     <color name="pickerview_title_text_color">#1A78EC</color>
     <color name="pickerview_center_text_color">#333333</color>
 
+    <!-- **************************************************************************************** -->
+    <color name="dia_pos_driver">#415fff</color>
+    <color name="dia_neg_driver">#999999</color>
+    <color name="dia_content_driver">#4a4c5b</color>
+    <color name="dia_title_driver">#333333</color>
+
+    <color name="dia_pos_user">#14a83e</color>
+    <color name="dia_neg_user">#7b7f83</color>
+    <color name="dia_content_user">#4f545a</color>
+    <color name="dia_title_user">#2b2d33</color>
 
     <color name="dia_white">#fff</color>
     <color name="dia_white_ed">#ededed</color>

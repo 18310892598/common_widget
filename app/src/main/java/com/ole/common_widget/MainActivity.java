@@ -42,6 +42,11 @@ import ola.com.pickerview.listener.OnOptionsSelectListener;
 import ola.com.pickerview.utils.Methods;
 import ola.com.pickerview.utils.TimeBean;
 import ola.com.pickerview.view.OptionsPickerView;
+import ola.com.stdialog.OlaStandardDialog;
+import ola.com.stdialog.StandardDialogHpic;
+import ola.com.stdialog.StandardDialogLast;
+import ola.com.stdialog.StandardDialogMpic;
+import ola.com.stdialog.StandardDialogXpic;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,10 +69,194 @@ public class MainActivity extends AppCompatActivity {
 
         final List<ItemBean> data = new ArrayList<>();
 
+        addUserStyle(dl, data);
+
+        data.add(new ItemBean("------------------", null));
+
+        addDriverStyle(data);
+
+        data.add(new ItemBean("------------------", null));
+
+        data.add(new ItemBean("StandardDialogXpic",
+                v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
+                        StandardDialogXpic.class, getActivity(),
+                0, "title", "content", "negative", "positive"))
+                .showDialog(getSupportFragmentManager(), new DialogListener() {
+                    @Override
+                    public void onCancel() {
+                        OlaToast.show(getActivity(), "onCancel");
+                    }
+
+                    @Override
+                    public void onOk() {
+                        OlaToast.show(getActivity(), "onOk");
+                    }
+                })));
+
+        data.add(new ItemBean("StandardDialogMpic",
+                v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
+                        StandardDialogMpic.class, getActivity(),
+                        R.mipmap.icon_prompt_wait_pay, "title", "content", "negative", "positive"))
+                        .showDialog(getSupportFragmentManager(), new DialogListener() {
+                            @Override
+                            public void onCancel() {
+                                OlaToast.show(getActivity(), "onCancel");
+                            }
+
+                            @Override
+                            public void onOk() {
+                                OlaToast.show(getActivity(), "onOk");
+                            }
+                        })));
+
+        data.add(new ItemBean("StandardDialogHpic",
+                v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
+                        StandardDialogHpic.class, getActivity(),
+                        R.mipmap.number_pic2, "title", "content", "negative", "positive"))
+                        .showDialog(getSupportFragmentManager(), new DialogListener() {
+                            @Override
+                            public void onCancel() {
+                                OlaToast.show(getActivity(), "onCancel");
+                            }
+
+                            @Override
+                            public void onOk() {
+                                OlaToast.show(getActivity(), "onOk");
+                            }
+                        })));
+
+        data.add(new ItemBean("StandardDialogLast",
+                v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
+                        StandardDialogLast.class, getActivity(),
+                        0, "title", "content", "negative", "positive"))
+                        .showDialog(getSupportFragmentManager(), new DialogListener() {
+                            @Override
+                            public void onCancel() {
+                                OlaToast.show(getActivity(), "onCancel");
+                            }
+
+                            @Override
+                            public void onOk() {
+                                OlaToast.show(getActivity(), "onOk");
+                            }
+                        })));
+
+
+        ListView lv = findViewById(R.id.lv);
+        ArrayAdapter<ItemBean> adapter = new ArrayAdapter<ItemBean>(this, R.layout.item) {
+
+            @Override
+            public int getCount() {
+                return data.size();
+            }
+
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                final ItemBean item = data.get(position);
+                @SuppressLint("ViewHolder") View view = LayoutInflater.from(getActivity()).inflate(R.layout.item, parent, false);
+                TextView tv = view.findViewById(R.id.tv);
+                tv.setText(item.name);
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (item.onClickListener != null)
+                            item.onClickListener.onClick(v);
+                    }
+                });
+                return view;
+            }
+        };
+        lv.setAdapter(adapter);
+
+    }
+
+    private void addDriverStyle(List<ItemBean> data) {
+        data.add(new ItemBean("CantChangeDestinationTipDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDriverDialog(CantChangeDestinationTipDialog.class);
+            }
+        }));
+
+        data.add(new ItemBean("ConfirmChangeDestinationDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDriverDialog(ConfirmChangeDestinationDialog.class);
+            }
+        }));
+
+        data.add(new ItemBean("CustomRequestDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDriverDialog(CustomRequestDialog.class);
+            }
+        }));
+
+        data.add(new ItemBean("LocationClosedDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDriverDialog(LocationClosedDialog.class);
+            }
+        }));
+
+        data.add(new ItemBean("LocationFailedDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDriverDialog(LocationFailedDialog.class);
+            }
+        }));
+
+        data.add(new ItemBean("PermissionDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDriverDialog(PermissionDialog.class);
+            }
+        }));
+
+        data.add(new ItemBean("RestTimeTipDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RestTimeTipDialog restTimeTipDialog = Objects.requireNonNull(OlaDialog.getInstance(RestTimeTipDialog.class, getActivity()));
+                if (restTimeTipDialog.getArguments() != null) {
+                    restTimeTipDialog.getArguments().putLong("time", 20000);
+                }
+                restTimeTipDialog.showDialog(getSupportFragmentManager(), v1 -> {
+
+                });
+            }
+        }));
+
+        data.add(new ItemBean("ToPickUpPassengerTipDialog", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDriverDialog(ToPickUpPassengerTipDialog.class);
+            }
+        }));
+
+        data.add(new ItemBean("UpdateDialogHelper", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UpdateDialogHelper.showDialogCheckVersion(getActivity(), new UpdateDialogHelper.DialogListener() {
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onOk() {
+
+                    }
+                }, "123", "45678", "0", "asdifjoqiwejroi", false, Configuration.APP_USER);
+            }
+        }));
+    }
+
+    private void addUserStyle(DialogHelper.DialogListener dl, List<ItemBean> data) {
         data.add(new ItemBean("ButtonActivity", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.this.startActivity(new Intent(MainActivity.this,ButtonActivity.class));
+                MainActivity.this.startActivity(new Intent(MainActivity.this, ButtonActivity.class));
             }
         }));
 
@@ -141,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
         data.add(new ItemBean("showEncryptCallDialog", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogHelper.showEncryptCallDialog(getActivity(), dl,"13240356677");
+                DialogHelper.showEncryptCallDialog(getActivity(), dl, "13240356677");
             }
         }));
 
@@ -183,118 +372,9 @@ public class MainActivity extends AppCompatActivity {
                 showTimePicker(true);
             }
         }));
-
-        data.add(new ItemBean("------------------", null));
-
-        data.add(new ItemBean("CantChangeDestinationTipDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStandardDialog(CantChangeDestinationTipDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("ConfirmChangeDestinationDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStandardDialog(ConfirmChangeDestinationDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("CustomRequestDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStandardDialog(CustomRequestDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("LocationClosedDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStandardDialog(LocationClosedDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("LocationFailedDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStandardDialog(LocationFailedDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("PermissionDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStandardDialog(PermissionDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("RestTimeTipDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RestTimeTipDialog restTimeTipDialog = Objects.requireNonNull(OlaDialog.getInstance(RestTimeTipDialog.class, getActivity()));
-                if (restTimeTipDialog.getArguments() != null) {
-                    restTimeTipDialog.getArguments().putLong("time", 20000);
-                }
-                restTimeTipDialog.showDialog(getSupportFragmentManager(), v1 -> {
-
-                });
-            }
-        }));
-
-        data.add(new ItemBean("ToPickUpPassengerTipDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showStandardDialog(ToPickUpPassengerTipDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("UpdateDialogHelper", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UpdateDialogHelper.showDialogCheckVersion(getActivity(), new UpdateDialogHelper.DialogListener() {
-                    @Override
-                    public void onCancel() {
-
-                    }
-
-                    @Override
-                    public void onOk() {
-
-                    }
-                }, "123", "45678", "0", "asdifjoqiwejroi", false, Configuration.APP_USER);
-            }
-        }));
-
-        ListView lv = findViewById(R.id.lv);
-        ArrayAdapter<ItemBean> adapter = new ArrayAdapter<ItemBean>(this, R.layout.item) {
-
-            @Override
-            public int getCount() {
-                return data.size();
-            }
-
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                final ItemBean item = data.get(position);
-                @SuppressLint("ViewHolder") View view = LayoutInflater.from(getActivity()).inflate(R.layout.item, parent, false);
-                TextView tv = view.findViewById(R.id.tv);
-                tv.setText(item.name);
-                view.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (item.onClickListener != null)
-                            item.onClickListener.onClick(v);
-                    }
-                });
-                return view;
-            }
-        };
-        lv.setAdapter(adapter);
-
     }
 
-    private <T extends OlaBaseFourDialog> void showStandardDialog(Class<T> t) {
+    private <T extends OlaBaseFourDialog> void showDriverDialog(Class<T> t) {
         Objects.requireNonNull(OlaDialog.getInstance(t, getActivity(),
                 "title", "content", "negative", "positive"))
                 .showDialog(getSupportFragmentManager(), new DialogListener() {
