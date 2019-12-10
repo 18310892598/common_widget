@@ -38,4 +38,5 @@ dependencies {
     api 'androidx.cardview:cardview:1.0.0'
     implementation project(path: ':widget')
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    api 'com.ole.libtoast:toast:1.0.3'
 }
