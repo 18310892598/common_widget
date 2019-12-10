@@ -55,7 +55,7 @@ public class ButtonActivity extends AppCompatActivity {
             @Override
             public void onReleased(int left, int top, int right, int bottom) {
                 Toast.makeText(ButtonActivity.this,"滑动成功",Toast.LENGTH_SHORT).show();
-                ((SlideDraghelperView)findViewById(R.id.slide_right_view_draghelper)).layout( left,  top,  right,  bottom);
+                ((SlideDraghelperView)findViewById(R.id.slide_right_view_draghelper)).layout( 0,  0,  0,  0);
             }
         });
 
