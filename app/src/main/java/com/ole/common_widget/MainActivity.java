@@ -260,6 +260,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
+        data.add(new ItemBean("ToastActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, ToastActivity.class));
+            }
+        }));
+
         data.add(new ItemBean("showDialog", new View.OnClickListener() {
             @Override
             public void onClick(View v) {

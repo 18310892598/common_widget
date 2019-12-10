@@ -50,7 +50,7 @@ public class SlideDraghelperView extends LinearLayout {
 
                 @Override
                 public void onViewReleased(View releasedChild, float xvel, float yvel) {
-                    if (oldX > getWidth() / 2) {
+                    if (oldX > getWidth() / 3 * 2) {
                         TranslateAnimation translateAnimation =
                                 new TranslateAnimation(0, childEndPosition.x, childPosition.y, childPosition.y);
                         translateAnimation.setDuration(300);
