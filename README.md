@@ -51,6 +51,14 @@ if (null != dialog && !dialog.isShowing()) {
 
 ![avatar](https://tva1.sinaimg.cn/large/006y8mN6ly1g7l37vmmy1j30cm0pddgj.jpg)
 
+9.showEncryptCallDialog
+
+![avatar](https://tva1.sinaimg.cn/large/006tNbRwly1g9rnoqzymfj30k0140gnx.jpg)
+
+10.showBlueNotFoundDialog
+
+![avatar](https://tva1.sinaimg.cn/large/006tNbRwly1g9rnr0rcz4j30k0140jse.jpg)
+
 
 二、时间选择器
 ——TimePickerView 时间选择器，支持年月日时分，年月日，年月，时分等格式。
@@ -246,3 +254,33 @@ public void onOk() {...}
 
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-14-7.png?version=1&modificationDate=1567750447000&api=v2)
 ![avatar](https://confluence.olafuwu.com/download/attachments/13196240/image2019-9-6_14-14-41.png?version=1&modificationDate=1567750482000&api=v2)
+
+七、标准弹窗
+
+使用示例：
+
+```javascript
+Objects.requireNonNull(OlaStandardDialog.getInstance(
+        StandardDialogMpic.class, getActivity(),
+        R.mipmap.icon_prompt_wait_pay, "title", "content", "negative", "positive"))
+        .showDialog(getSupportFragmentManager(), new DialogListener() {
+            @Override
+            public void onCancel() {
+                OlaToast.show(getActivity(), "onCancel");
+            }
+
+            @Override
+            public void onOk() {
+                OlaToast.show(getActivity(), "onOk");
+            }
+        })
+```
+
+相关样式参考：https://confluence.olafuwu.com/pages/viewpage.action?pageId=19019479#space-menu-link-content
+
+其中：
+无图片对应StandardDialogXpic
+小图片对应StandardDialogMpic
+大图片对应StandardDialogHpic
+功能描述提醒对应StandardDialogLast
+

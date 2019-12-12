@@ -21,8 +21,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:src="@drawable/fill" />
+                android:src="@drawable/icon_huadong_right" />
 
             <TextView
                 android:id="@+id/tv_slide_text"
