@@ -80,23 +80,7 @@ public class MainActivity extends AppCompatActivity {
         data.add(new ItemBean("StandardDialogXpic",
                 v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
                         StandardDialogXpic.class, getActivity(),
-                0, "title", "content", "negative", "positive"))
-                .showDialog(getSupportFragmentManager(), new DialogListener() {
-                    @Override
-                    public void onCancel() {
-                        OlaToast.show(getActivity(), "onCancel");
-                    }
-
-                    @Override
-                    public void onOk() {
-                        OlaToast.show(getActivity(), "onOk");
-                    }
-                })));
-
-        data.add(new ItemBean("StandardDialogMpic",
-                v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
-                        StandardDialogMpic.class, getActivity(),
-                        R.mipmap.icon_prompt_wait_pay, "title", "content", "negative", "positive"))
+                        0, "title", "content", "negative", "positive"))
                         .showDialog(getSupportFragmentManager(), new DialogListener() {
                             @Override
                             public void onCancel() {
@@ -108,6 +92,24 @@ public class MainActivity extends AppCompatActivity {
                                 OlaToast.show(getActivity(), "onOk");
                             }
                         })));
+
+        data.add(new ItemBean("StandardDialogMpic",
+                        v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
+                                StandardDialogMpic.class, getActivity(),
+                                R.mipmap.icon_prompt_wait_pay, "title", "content", "negative", "positive"))
+                                .showDialog(getSupportFragmentManager(), new DialogListener() {
+                                    @Override
+                                    public void onCancel() {
+                                        OlaToast.show(getActivity(), "onCancel");
+                                    }
+
+                                    @Override
+                                    public void onOk() {
+                                        OlaToast.show(getActivity(), "onOk");
+                                    }
+                                })
+                )
+        );
 
         data.add(new ItemBean("StandardDialogHpic",
                 v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
