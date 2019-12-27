@@ -5,7 +5,6 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
 import ola.com.dialog.R;
-import ola.com.dialogs.callback.DialogListener;
 import ola.com.stdialog.base.OlaBaseStandardDialog;
 
 public class StandardDialogLast extends OlaBaseStandardDialog {

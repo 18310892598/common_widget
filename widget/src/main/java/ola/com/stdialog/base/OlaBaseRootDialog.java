@@ -22,10 +22,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import java.lang.reflect.Field;
-import java.util.Objects;
 
 import ola.com.dialog.R;
-import ola.com.dialogs.util.DialogUiUtil;
 
 public abstract class OlaBaseRootDialog extends DialogFragment {
     protected View mContentView;

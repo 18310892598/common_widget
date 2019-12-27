@@ -20,26 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import ola.com.dialogs.OlaDialog;
-import ola.com.dialogs.base.OlaBaseFourDialog;
-import ola.com.dialogs.callback.DialogListener;
-import ola.com.dialogs.config.Configuration;
-import ola.com.dialogs.dialog.CantChangeDestinationTipDialog;
-import ola.com.dialogs.dialog.ConfirmChangeDestinationDialog;
-import ola.com.dialogs.dialog.CustomRequestDialog;
-import ola.com.dialogs.dialog.LocationClosedDialog;
-import ola.com.dialogs.dialog.LocationFailedDialog;
-import ola.com.dialogs.dialog.PermissionDialog;
-import ola.com.dialogs.dialog.RestTimeTipDialog;
-import ola.com.dialogs.dialog.ToPickUpPassengerTipDialog;
-import ola.com.dialogs.dialog.UpdateDialogHelper;
-import ola.com.dialogs.toast.OlaToast;
 import ola.com.pickerview.builder.OptionsPickerBuilder;
 import ola.com.pickerview.interfaces.IPickerViewData;
 import ola.com.pickerview.listener.OnOptionsSelectListener;
 import ola.com.pickerview.utils.Methods;
 import ola.com.pickerview.utils.TimeBean;
 import ola.com.pickerview.view.OptionsPickerView;
+import ola.com.stdialog.DialogListener;
 import ola.com.stdialog.OlaStandardDialog;
 import ola.com.stdialog.StandardDialogHpic;
 import ola.com.stdialog.StandardDialogLast;
@@ -78,10 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
         data.add(new ItemBean("------------------", null));
 
-        addDriverStyle(data);
-
-        data.add(new ItemBean("------------------", null));
-
         data.add(new ItemBean("StandardDialogXpic",
                 v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
                         StandardDialogXpic.class, getActivity(),
@@ -89,12 +72,12 @@ public class MainActivity extends AppCompatActivity {
                         .showDialog(getSupportFragmentManager(), new DialogListener() {
                             @Override
                             public void onCancel() {
-                                OlaToast.show(getActivity(), "onCancel");
+                                Toast.makeText(getActivity(), "onCancel",Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
                             public void onOk() {
-                                OlaToast.show(getActivity(), "onOk");
+                                Toast.makeText(getActivity(), "onOk",Toast.LENGTH_SHORT).show();
                             }
                         })));
 
@@ -105,12 +88,12 @@ public class MainActivity extends AppCompatActivity {
                                 .showDialog(getSupportFragmentManager(), new DialogListener() {
                                     @Override
                                     public void onCancel() {
-                                        OlaToast.show(getActivity(), "onCancel");
+                                        Toast.makeText(getActivity(), "onCancel",Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override
                                     public void onOk() {
-                                        OlaToast.show(getActivity(), "onOk");
+                                        Toast.makeText(getActivity(), "onOk",Toast.LENGTH_SHORT).show();
                                     }
                                 })
                 )
@@ -123,12 +106,12 @@ public class MainActivity extends AppCompatActivity {
                         .showDialog(getSupportFragmentManager(), new DialogListener() {
                             @Override
                             public void onCancel() {
-                                OlaToast.show(getActivity(), "onCancel");
+                                Toast.makeText(getActivity(), "onCancel",Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
                             public void onOk() {
-                                OlaToast.show(getActivity(), "onOk");
+                                Toast.makeText(getActivity(), "onOk",Toast.LENGTH_SHORT).show();
                             }
                         })));
 
@@ -139,12 +122,12 @@ public class MainActivity extends AppCompatActivity {
                         .showDialog(getSupportFragmentManager(), new DialogListener() {
                             @Override
                             public void onCancel() {
-                                OlaToast.show(getActivity(), "onCancel");
+                                Toast.makeText(getActivity(), "onCancel",Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
                             public void onOk() {
-                                OlaToast.show(getActivity(), "onOk");
+                                Toast.makeText(getActivity(), "onOk",Toast.LENGTH_SHORT).show();
                             }
                         })));
 
@@ -176,103 +159,6 @@ public class MainActivity extends AppCompatActivity {
         };
         lv.setAdapter(adapter);
 
-    }
-
-    private void addDriverStyle(List<ItemBean> data) {
-        data.add(new ItemBean("CantChangeDestinationTipDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDriverDialog(CantChangeDestinationTipDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("ConfirmChangeDestinationDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDriverDialog(ConfirmChangeDestinationDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("CustomRequestDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDriverDialog(CustomRequestDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("LocationClosedDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDriverDialog(LocationClosedDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("LocationFailedDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDriverDialog(LocationFailedDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("PermissionDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDriverDialog(PermissionDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("RestTimeTipDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RestTimeTipDialog restTimeTipDialog = Objects.requireNonNull(OlaDialog.getInstance(RestTimeTipDialog.class, getActivity()));
-                if (restTimeTipDialog.getArguments() != null) {
-                    restTimeTipDialog.getArguments().putLong("time", 20000);
-                }
-                restTimeTipDialog.showDialog(getSupportFragmentManager(), v1 -> {
-
-                });
-            }
-        }));
-
-        data.add(new ItemBean("ToPickUpPassengerTipDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDriverDialog(ToPickUpPassengerTipDialog.class);
-            }
-        }));
-
-        data.add(new ItemBean("UpdateDialogHelper", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UpdateDialogHelper.showDialogCheckVersion(getActivity(), new UpdateDialogHelper.DialogListener() {
-                    @Override
-                    public void onCancel() {
-
-                    }
-
-                    @Override
-                    public void onOk() {
-
-                    }
-                }, "123", "45678", "0", "asdifjoqiwejroi", false, Configuration.APP_USER);
-            }
-        }));
-    }
-
-    private <T extends OlaBaseFourDialog> void showDriverDialog(Class<T> t) {
-        Objects.requireNonNull(OlaDialog.getInstance(t, getActivity(),
-                "title", "content", "negative", "positive"))
-                .showDialog(getSupportFragmentManager(), new DialogListener() {
-                    @Override
-                    public void onCancel() {
-                        OlaToast.show(getActivity(), "onCancel");
-                    }
-
-                    @Override
-                    public void onOk() {
-                        OlaToast.show(getActivity(), "onOk");
-                    }
-                });
     }
 
     private MainActivity getActivity() {

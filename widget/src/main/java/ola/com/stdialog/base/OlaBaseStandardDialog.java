@@ -11,13 +11,11 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
 import ola.com.dialog.R;
-import ola.com.dialogs.callback.DialogListener;
-import ola.com.dialogs.config.Configuration;
-import ola.com.dialogs.dialog.PermissionDialog;
+import ola.com.stdialog.Configuration;
+import ola.com.stdialog.DialogListener;
 
 public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
-    private static final String TAG = PermissionDialog.class.getSimpleName();
-
+    private static final String TAG = OlaBaseStandardDialog.class.getSimpleName();
     private static short APP = Configuration.APP_DRIVER;
 
     private DialogListener dialogListener;

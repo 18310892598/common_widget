@@ -1,4 +1,4 @@
-package ola.com.dialogs.callback;
+package ola.com.stdialog;
 
 public interface DialogListener {
     /**

@@ -25,14 +25,6 @@
 
     <string name="dia_cancel">取消</string>
 
-    <string name="dia_content_off_car">系统检测到您的<font color="#fc6c00">定位服务关闭</font>，已强制收车，平台对恶意关闭定位服务行为将进行监控并视情况给予处罚。\n如有行程中订单，关闭定位服务将导致行程计费不准，在设置中开启定位服务后，重新出车即可继续接单。</string>
-    <string name="dia_content_rest_time">您已连续工作超过4小时，为了保证驾驶安全，请休息%s分钟后，再继续听单。</string>
-    <string name="dia_content_cant_change">当前订单为企业用车订单，不支持更改目的地。</string>
-    <string name="dia_content_change_make_sure">请与乘客协商后更改目的地，您确定更改吗？</string>
-    <string name="dia_content_location_failed">您未开启GPS定位权限，请前往设置开启。</string>
-    <string name="dia_content_location_failed_2">请在设置-隐私-定位服务中打开定位服务，并允许欧了司机使用定位服务。</string>
-    <string name="dia_content_pick_alert">滑动去接乘客后，将无法返回，确定现在去接乘客吗？</string>
-    <string name="dia_content_permission_1">系统检测到您缺少必要权限，无法进行相应任务，请前往手机设置中心开启相应权限。</string>
     <string name="dia_content_blue_not_found">未搜到当前车辆车载蓝牙\n请与司机沟通后在手机设置中连接</string>
     <string name="dia_content_call_encryption_1">平台将对您的手机号进行加密呼出</string>
     <string name="dia_content_call_encryption_2">非本机手机号请通过发消息功能联系司机</string>
