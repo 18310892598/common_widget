@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="267dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_common_white_corner"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/dia_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="标题"
+            android:textColor="@color/dia_black_333"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/dia_tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="告知当前状态，信息和解决方案，文字换行情况"
+            android:textColor="@color/dia_gray_4f545a"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/dia_tv_positive"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@color/dia_pos_driver"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/dia_white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>
