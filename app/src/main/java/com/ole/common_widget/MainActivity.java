@@ -19,9 +19,7 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.Executors;
 
-import ola.com.dialog.DialogHelper;
 import ola.com.dialogs.OlaDialog;
 import ola.com.dialogs.base.OlaBaseFourDialog;
 import ola.com.dialogs.callback.DialogListener;
@@ -55,21 +53,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final DialogHelper.DialogListener dl = new DialogHelper.DialogListener() {
-            @Override
-            public void onCancel() {
-                Toast.makeText(getActivity(), "cancel", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onOk() {
-                Toast.makeText(getActivity(), "ok", Toast.LENGTH_SHORT).show();
-            }
-        };
-
         final List<ItemBean> data = new ArrayList<>();
 
-        addUserStyle(dl, data);
+        data.add(new ItemBean("ButtonActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, ButtonActivity.class));
+            }
+        }));
+
+        data.add(new ItemBean("ToastActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, ToastActivity.class));
+            }
+        }));
+
+        data.add(new ItemBean("showTimePicker", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePicker(true);
+            }
+        }));
 
         data.add(new ItemBean("------------------", null));
 
@@ -250,135 +255,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 }, "123", "45678", "0", "asdifjoqiwejroi", false, Configuration.APP_USER);
-            }
-        }));
-    }
-
-    private void addUserStyle(DialogHelper.DialogListener dl, List<ItemBean> data) {
-        data.add(new ItemBean("ButtonActivity", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainActivity.this.startActivity(new Intent(MainActivity.this, ButtonActivity.class));
-            }
-        }));
-
-        data.add(new ItemBean("ToastActivity", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainActivity.this.startActivity(new Intent(MainActivity.this, ToastActivity.class));
-            }
-        }));
-
-        data.add(new ItemBean("showDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showDialog(getActivity(), "title",
-                        "content", "ok", "cancel", dl);
-            }
-        }));
-
-        data.add(new ItemBean("showDialogRequest", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showDialogRequest(getActivity(), "title",
-                        "content", "ok", "cancel", dl);
-            }
-        }));
-
-        data.add(new ItemBean("showDialogCommon", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showDialogCommon(getActivity(), "title",
-                        "content", "ok", "cancel", dl);
-            }
-        }));
-
-        data.add(new ItemBean("showDialogImgCommon", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showDialogImgCommon(getActivity(),
-                        "content", "ok", "cancel", dl);
-            }
-        }));
-        data.add(new ItemBean("showDriverDialogImgCommon", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showDriverDialogImgCommon(getActivity(), "今日线下服务可运营时段为：12:30-14:30；18:30-19:30；21:30-06:30。", "当前时段不支持线下服务",
-                        "查看运营规则", "关闭", false, R.mipmap.dialog_icon_time, dl);
-            }
-        }));
-        data.add(new ItemBean("giveCoupon", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.giveCoupon(getActivity(), dl);
-            }
-        }));
-
-        data.add(new ItemBean("showDialogCheckVersion", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showDialogCheckVersion(getActivity(), dl, "1.0.0",
-                        "0", "0", "detail", false);
-            }
-        }));
-
-        data.add(new ItemBean("showDialogCheckNotify", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showDialogCheckNotify(getActivity(), dl);
-            }
-        }));
-
-        data.add(new ItemBean("showCallPhoneDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showCallPhoneDialog(getActivity(), dl);
-            }
-        }));
-
-        data.add(new ItemBean("showEncryptCallDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showEncryptCallDialog(getActivity(), dl, "xxx-xxxx-xxxx");
-            }
-        }));
-
-        data.add(new ItemBean("showBlueNotFoundDialog", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showBlueNotFoundDialog(getActivity(), "content", dl);
-            }
-        }));
-
-        data.add(new ItemBean("showPayLoading", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogHelper.showPayLoading(getActivity());
-
-                Executors.newSingleThreadExecutor().submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                DialogHelper.stopDialog(getActivity());
-                            }
-                        });
-                    }
-                });
-            }
-        }));
-
-        data.add(new ItemBean("showTimePicker", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTimePicker(true);
             }
         }));
     }

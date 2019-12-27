@@ -19,6 +19,7 @@
 
         <activity android:name=".ButtonActivity"/>
         <activity android:name=".ToastActivity"/>
+        <activity android:name=".TitleActivity"/>
     </application>
 
 </manifest>
