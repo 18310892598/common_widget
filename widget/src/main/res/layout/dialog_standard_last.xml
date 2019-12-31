@@ -10,7 +10,7 @@
         android:background="@drawable/shape_common_white_corner"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="15dp">
 
         <TextView
             android:id="@+id/dia_tv_title"
@@ -31,8 +31,6 @@
             android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:maxLines="4"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
             android:text="告知当前状态，信息和解决方案，文字换行情况"
             android:textColor="@color/dia_gray_4f545a"
             android:textSize="14sp" />
