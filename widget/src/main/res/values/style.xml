@@ -39,6 +39,11 @@
         <item name="android:backgroundDimAmount">0.5</item>
     </style>
 
+    <style name="title_text_style">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FF333333</item>
+    </style>
+
     <!-- 自定义按钮样式 -->
     <style name="CommonShapeButtonStyle" parent="@style/Widget.AppCompat.Button">
         <item name="android:minWidth">0dp</item>

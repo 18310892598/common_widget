@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
 import ola.com.dialog.R;
-import ola.com.stdialog.Configuration;
+import ola.com.Configuration;
 import ola.com.stdialog.DialogListener;
 
 public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {

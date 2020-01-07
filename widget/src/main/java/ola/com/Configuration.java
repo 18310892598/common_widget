@@ -1,4 +1,4 @@
-package ola.com.stdialog;
+package ola.com;
 
 import ola.com.dialog.R;
 

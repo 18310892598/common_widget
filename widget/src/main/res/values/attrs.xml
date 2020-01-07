@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Title_bar">
+        <attr name="centerTitle" format="string"/>
+        <attr name="rightSrc" format="color|reference"/>
+        <attr name="rightText" format="string"/>
+        <attr name="closeVisible" format="boolean"/>
+        <attr name="rightTextEnable" format="boolean"/>
+        <attr name="visualStyle">
+            <enum name="white" value="0" />
+            <enum name="trans" value="1" />
+        </attr>
+    </declare-styleable>
+
+</resources>

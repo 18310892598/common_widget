@@ -56,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
+        data.add(new ItemBean("TitleActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, TitleActivity.class));
+            }
+        }));
+
         data.add(new ItemBean("showTimePicker", new View.OnClickListener() {
             @Override
             public void onClick(View v) {

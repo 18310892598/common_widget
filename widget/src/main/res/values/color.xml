@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="transparent">#00000000</color>
+
     <color name="black_25">#252525</color>
-    <color name="textColor_232931">#232931</color>
 
     <color name="white_e7">#e7e7e7</color>
 
     <color name="blue_76">#0076ff</color>
     <color name="blue_47">#474D66</color>
 
+    <color name="textColor_232931">#232931</color>
     <color name="textcolor_3E">#14A83E</color>
     <color name="textcolor_FF">#415FFF</color>
 
