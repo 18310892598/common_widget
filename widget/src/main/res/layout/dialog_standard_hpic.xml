@@ -25,7 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="为了更好的保护您的信息安全，平台将通过“虚拟号”为您联系司机"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:text="实人认证"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
@@ -34,8 +36,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
             android:layout_marginTop="3dp"
-            android:text="您的手机号码已被隐藏，司机无法看到"
+            android:text="为保护司乘双方行程安全，请先进行实人认证,认证通过后，才可接单"
             android:textColor="@color/textcolor_5a"
             android:textSize="14sp" />
 
