@@ -16,7 +16,8 @@ import ola.com.stdialog.DialogListener;
 
 public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
     private static final String TAG = OlaBaseStandardDialog.class.getSimpleName();
-    private static short APP = Configuration.APP_DRIVER;
+
+    public static short APP = Configuration.APP_DRIVER;
 
     private DialogListener dialogListener;
 
