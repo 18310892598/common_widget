@@ -41,7 +41,7 @@ public class OleTitleBar extends RelativeLayout {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        LayoutInflater.from(context).inflate(R.layout.widget_title_bar, this);
+        LayoutInflater.from(context).inflate(R.layout.ole_title_bar, this);
 
         String centerTxt = "", rightTxt = "";
         int visualStyle = 0;
@@ -60,12 +60,12 @@ public class OleTitleBar extends RelativeLayout {
             ta.recycle();
         }
 
-        backImage = findViewById(R.id.widget_left_button);
-        rightImage = findViewById(R.id.widget_right_image);
-        closeImage = findViewById(R.id.widget_left_close);
-        parent = findViewById(R.id.main);
-        tvTitle = findViewById(R.id.widget_center_title);
-        rightText = findViewById(R.id.widget_right_text);
+        backImage = findViewById(R.id.oletitle_left_button);
+        rightImage = findViewById(R.id.oletitle_right_image);
+        closeImage = findViewById(R.id.oletitle_left_close);
+        parent = findViewById(R.id.oletitle_main);
+        tvTitle = findViewById(R.id.oletitle_center_title);
+        rightText = findViewById(R.id.oletitle_right_text);
 
         tvTitle.setText(centerTxt);
 

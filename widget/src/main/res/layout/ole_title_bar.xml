@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
+    android:id="@+id/oletitle_main"
     android:layout_width="match_parent"
     android:layout_height="47dp">
 
     <ImageView
-        android:id="@+id/widget_left_button"
+        android:id="@+id/oletitle_left_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
@@ -15,7 +15,7 @@
         android:src="@mipmap/title_back_black" />
 
     <ImageView
-        android:id="@+id/widget_left_close"
+        android:id="@+id/oletitle_left_close"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
@@ -26,7 +26,7 @@
         android:src="@mipmap/ic_close" />
 
     <TextView
-        android:id="@+id/widget_center_title"
+        android:id="@+id/oletitle_center_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -34,7 +34,7 @@
         android:textSize="17sp" />
 
     <ImageView
-        android:id="@+id/widget_right_image"
+        android:id="@+id/oletitle_right_image"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_alignParentRight="true"
@@ -44,7 +44,7 @@
         android:contentDescription="@null" />
 
     <TextView
-        android:id="@+id/widget_right_text"
+        android:id="@+id/oletitle_right_text"
         style="@style/title_text_style"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
