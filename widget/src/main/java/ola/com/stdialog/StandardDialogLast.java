@@ -19,7 +19,7 @@ public class StandardDialogLast extends OlaBaseStandardDialog {
     }
 
     @Override
-    protected void setPositive(String positive, DialogListener dialogListener) {
+    public void setPositive(String positive, DialogListener dialogListener) {
         final DialogListener fDialogListener = dialogListener;
         TextView pos = setText(R.id.dia_tv_positive, positive);
         if (pos != null) {
