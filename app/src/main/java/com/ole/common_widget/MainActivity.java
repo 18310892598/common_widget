@@ -3,10 +3,12 @@ package com.ole.common_widget;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ import ola.com.pickerview.listener.OnOptionsSelectListener;
 import ola.com.pickerview.utils.Methods;
 import ola.com.pickerview.utils.TimeBean;
 import ola.com.pickerview.view.OptionsPickerView;
+import ola.com.popwindow.CommonPopupWindow;
 import ola.com.stdialog.DialogListener;
 import ola.com.stdialog.OlaStandardDialog;
 import ola.com.stdialog.StandardDialogHpic;
@@ -60,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, TitleActivity.class));
+            }
+        }));
+
+        data.add(new ItemBean("showPopwindow", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, PopwindowActivity.class));
             }
         }));
 

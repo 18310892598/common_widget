@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <ola.com.button.CommonShapeButton
+            android:id="@+id/bt1"
+            android:layout_marginTop="100dp"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:text="显示选择乘车人样式弹窗"
+            android:textColor="#fff"
+            app:csb_cornerRadius="50dp"
+            app:csb_fillColor="#415FFF" />
+
+        <ola.com.button.CommonShapeButton
+            android:id="@+id/bt2"
+            android:layout_marginTop="100dp"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="无"
+            android:textColor="#fff"
+            android:drawableLeft="@drawable/fill"
+            android:drawablePadding="5dp"
+            app:csb_drawablePosition="left"
+            app:csb_cornerRadius="50dp"
+            app:csb_fillColor="#415FFF" />
+
+
+    </LinearLayout>
+
+</ScrollView>

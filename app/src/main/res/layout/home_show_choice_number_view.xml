@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_common_white_two_corner_small"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/x30"
+    android:paddingRight="@dimen/x30">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x30">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请您确认乘车人数"
+            android:textColor="@color/tips_black2"
+            android:textSize="@dimen/x40"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="@dimen/x30"
+            android:layout_height="@dimen/x30"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/x22"
+            android:src="@mipmap/ic_close" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x30"
+        android:text="最多提供2人乘车（包含婴儿和儿童），且不能携带宠物上车，否则司机有可能取消行程。"
+        android:textColor="@color/textcolor_666"
+        android:textSize="@dimen/x24" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x120"
+        android:layout_marginBottom="@dimen/x140"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/choice_one"
+            android:layout_width="@dimen/x260"
+            android:layout_height="@dimen/x86"
+            android:background="@drawable/selector_choice_number_bg"
+            android:gravity="center"
+            android:text="1人"
+            android:textColor="@color/selector_choice_number_text_bg"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/x32" />
+
+        <TextView
+            android:id="@+id/choice_two"
+            android:layout_width="@dimen/x260"
+            android:layout_height="@dimen/x86"
+            android:layout_marginLeft="@dimen/x60"
+            android:background="@drawable/selector_choice_number_bg"
+            android:gravity="center"
+            android:text="2人"
+            android:textColor="@color/selector_choice_number_text_bg"
+            android:textSize="@dimen/x32" />
+
+    </LinearLayout>
+
+</LinearLayout>
