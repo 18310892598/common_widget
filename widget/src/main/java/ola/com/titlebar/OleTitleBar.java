@@ -56,7 +56,7 @@ public class OleTitleBar extends RelativeLayout {
             rightSrc = ta.getDrawable(R.styleable.Title_bar_rightSrc);
             visualStyle = ta.getInt(R.styleable.Title_bar_visualStyle, 0);
             rightEnable = ta.getBoolean(R.styleable.Title_bar_rightTextEnable, true);
-            closeVisible = ta.getBoolean(R.styleable.Title_bar_rightTextEnable, false);
+            closeVisible = ta.getBoolean(R.styleable.Title_bar_closeVisible, false);
             ta.recycle();
         }
 
@@ -81,9 +81,10 @@ public class OleTitleBar extends RelativeLayout {
             rightImage.setVisibility(VISIBLE);
         }
 
-        rightText.setTextColor(ContextCompat.getColor(
-                getContext(), rightEnable ?
-                        R.color.dia_black : R.color.textcolor_7B7F83));
+        if (rightEnable) {
+            rightText.setTextColor(ContextCompat.getColor(
+                    getContext(), R.color.textcolor_7B7F83));
+        }
 
         backImage.setOnClickListener(v -> {
             if (mListener != null) {

@@ -1,17 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/black_25"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black_25"
+    android:orientation="vertical">
 
-    <ola.com.titlebar.OleTitleBar
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:visualStyle="white"
-        app:centerTitle="标题"
-        app:rightSrc="@mipmap/ic_ad_close"
-        />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:visualStyle="white" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:visualStyle="trans" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:rightText="不可点击"
+                app:rightTextEnable="false"
+                app:visualStyle="white" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:rightText="不可点击"
+                app:rightTextEnable="false"
+                app:visualStyle="trans" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:rightText="可以点击"
+                app:visualStyle="white" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:rightText="可以点击"
+                app:visualStyle="trans" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:rightSrc="@mipmap/title_more_black"
+                app:visualStyle="white" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:rightSrc="@mipmap/title_more_white"
+                app:visualStyle="trans" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:closeVisible="true"
+                app:visualStyle="white" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:closeVisible="true"
+                app:visualStyle="trans" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:closeVisible="true"
+                app:rightText="不可点击"
+                app:rightTextEnable="false"
+                app:visualStyle="white" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:closeVisible="true"
+                app:rightText="不可点击"
+                app:rightTextEnable="false"
+                app:visualStyle="trans" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:closeVisible="true"
+                app:rightText="可以点击"
+                app:visualStyle="white" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:closeVisible="true"
+                app:rightText="可以点击"
+                app:visualStyle="trans" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:closeVisible="true"
+                app:rightSrc="@mipmap/title_more_black"
+                app:visualStyle="white" />
+
+            <ola.com.titlebar.OleTitleBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:centerTitle="标题"
+                app:closeVisible="true"
+                app:rightSrc="@mipmap/title_more_white"
+                app:visualStyle="trans" />
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>
