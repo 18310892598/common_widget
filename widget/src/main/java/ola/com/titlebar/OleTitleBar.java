@@ -81,7 +81,7 @@ public class OleTitleBar extends RelativeLayout {
             rightImage.setVisibility(VISIBLE);
         }
 
-        if (rightEnable) {
+        if (!rightEnable) {
             rightText.setTextColor(ContextCompat.getColor(
                     getContext(), R.color.textcolor_7B7F83));
         }
