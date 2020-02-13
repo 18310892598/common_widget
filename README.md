@@ -1,6 +1,6 @@
 当前最新版本:
 ```javascript
-api 'com.ole.travel:widget:1.2.17'
+api 'com.ole.travel:widget:1.2.18'
 ```
 
 一、时间选择器
