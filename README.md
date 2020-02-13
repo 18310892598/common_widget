@@ -1,3 +1,8 @@
+当前最新版本:
+```javascript
+api 'com.ole.travel:widget:1.2.17'
+```
+
 一、时间选择器
 ——TimePickerView 时间选择器，支持年月日时分，年月日，年月，时分等格式。
 
@@ -139,9 +144,11 @@ Objects.requireNonNull(OlaStandardDialog.getInstance(
 三、标准标题栏
 
 https://confluence.olafuwu.com/display/oleTerminal/ui_titlebar
+
 这里目前只包含通用样式，应用特定样式没有包含
 
 布局中，支持的属性控制如下
+
 ```javascript
 <attr name="centerTitle" format="string"/>				//中间标题
 <attr name="rightSrc" format="color|reference"/>		//右侧图片资源，默认不显示右侧图片，设置后会显示
@@ -185,5 +192,9 @@ public TextView getRightText()
 来直接获得
 
 显示风格可以通过void switchVisualStyle(int)来切换，两种风格对应OleTitleBar.STYLE_WHITE和OleTitleBar.STYLE_TRANS
+
+public void setRightEnable(boolean enable)		//设置右键是否可用
+
+public void setTitle(CharSequence text)		//设置标题内容
 
 
