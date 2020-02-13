@@ -170,8 +170,10 @@ https://confluence.olafuwu.com/display/oleTerminal/ui_titlebar
     app:rightSrc="@mipmap/title_more_white"
     app:visualStyle="trans" />
 ```
+注意：标题暂定最多12字，多出末尾省略
 
 标题栏的点击事件需要通过public void setTitleClick(OnTitleBarClickListener l)方法来设置，其中，OnTitleBarClickListener的结构如下
+
 ```javascript
 public interface OnTitleBarClickListener {
     void onBackClick();		//返回键点击
