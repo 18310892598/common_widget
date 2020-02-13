@@ -1,3 +1,8 @@
+当前最新版本:
+```javascript
+api 'com.ole.travel:widget:1.2.17'
+```
+
 一、时间选择器
 ——TimePickerView 时间选择器，支持年月日时分，年月日，年月，时分等格式。
 
@@ -135,4 +140,63 @@ Objects.requireNonNull(OlaStandardDialog.getInstance(
 小图片对应StandardDialogMpic
 大图片对应StandardDialogHpic
 功能描述提醒对应StandardDialogLast
+
+三、标准标题栏
+
+https://confluence.olafuwu.com/display/oleTerminal/ui_titlebar
+
+这里目前只包含通用样式，应用特定样式没有包含
+
+布局中，支持的属性控制如下
+
+```javascript
+<attr name="centerTitle" format="string"/>				//中间标题
+<attr name="rightSrc" format="color|reference"/>		//右侧图片资源，默认不显示右侧图片，设置后会显示
+<attr name="rightText" format="string"/>				//右侧文字，默认不显示右侧文字，设置后会显示
+<attr name="closeVisible" format="boolean"/>			//关闭按钮是否可见，默认不可见
+<attr name="rightTextEnable" format="boolean"/>		//右侧文字按钮是否可用，默认可用，设置为true后会被置灰且不可点击
+<attr name="visualStyle">							//整体风格样式，white为白底黑字，trans为透明底白字
+    <enum name="white" value="0" />
+    <enum name="trans" value="1" />
+</attr>
+```
+示例如下：
+```javascript
+<ola.com.titlebar.OleTitleBar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:centerTitle="标题"
+    app:closeVisible="true"
+    app:rightSrc="@mipmap/title_more_white"
+    app:visualStyle="trans" />
+```
+注意：标题暂定最多12字，多出末尾省略
+
+标题栏的点击事件需要通过public void setTitleClick(OnTitleBarClickListener l)方法来设置，其中，OnTitleBarClickListener的结构如下
+
+```javascript
+public interface OnTitleBarClickListener {
+    void onBackClick();		//返回键点击
+
+    void onRightClick();		//右侧图片或文字按钮点击
+
+    void onCloseClick();		//关闭按钮点击
+}
+```
+标题栏中的五个元素（返回键、关闭键、中标题、右图片、右文字）分别可以通过
+```javascript
+public ImageView getBack()
+public ImageView getClose()
+public TextView getCenter()
+public ImageView getRightImage()
+public TextView getRightText()
+```
+来直接获得
+
+显示风格可以通过void switchVisualStyle(int)来切换，两种风格对应OleTitleBar.STYLE_WHITE和OleTitleBar.STYLE_TRANS
+
+public void setRightEnable(boolean enable)		//设置右键是否可用
+
+public void setTitle(CharSequence text)		//设置标题内容
+
 
