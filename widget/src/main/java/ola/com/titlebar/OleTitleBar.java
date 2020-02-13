@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,7 +28,6 @@ public class OleTitleBar extends RelativeLayout {
 
     private ImageView backImage, rightImage, closeImage;
     private TextView tvTitle, rightText;
-    private View parent;
 
     private boolean rightEnable = true;
     private int visualStyle = 0;
@@ -63,7 +61,6 @@ public class OleTitleBar extends RelativeLayout {
         backImage = findViewById(R.id.oletitle_left_button);
         rightImage = findViewById(R.id.oletitle_right_image);
         closeImage = findViewById(R.id.oletitle_left_close);
-        parent = findViewById(R.id.oletitle_main);
         tvTitle = findViewById(R.id.oletitle_center_title);
         rightText = findViewById(R.id.oletitle_right_text);
 
@@ -111,7 +108,7 @@ public class OleTitleBar extends RelativeLayout {
     public void switchVisualStyle(int style) {
         switch (style) {
             case STYLE_WHITE:
-                parent.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.dia_white));
+                setBackgroundColor(ContextCompat.getColor(getContext(), R.color.dia_white));
                 tvTitle.setTextColor(ContextCompat.getColor(getContext(), R.color.dia_black));
                 rightText.setTextColor(ContextCompat.getColor(getContext(), R.color.dia_black));
                 backImage.setImageResource(R.mipmap.title_back_black);
@@ -119,7 +116,7 @@ public class OleTitleBar extends RelativeLayout {
                 rightImage.setImageResource(R.mipmap.title_more_black);
                 break;
             case STYLE_TRANS:
-                parent.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.transparent));
+                setBackgroundColor(ContextCompat.getColor(getContext(), R.color.transparent));
                 tvTitle.setTextColor(ContextCompat.getColor(getContext(), R.color.dia_white));
                 rightText.setTextColor(ContextCompat.getColor(getContext(), R.color.dia_white));
                 backImage.setImageResource(R.mipmap.title_back_white);
