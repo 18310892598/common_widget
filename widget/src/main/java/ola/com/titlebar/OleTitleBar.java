@@ -32,6 +32,7 @@ public class OleTitleBar extends RelativeLayout {
     private View parent;
 
     private boolean rightEnable = true;
+    private int visualStyle = 0;
 
     private OnTitleBarClickListener mListener;
 
@@ -44,7 +45,6 @@ public class OleTitleBar extends RelativeLayout {
         LayoutInflater.from(context).inflate(R.layout.ole_title_bar, this);
 
         String centerTxt = "", rightTxt = "";
-        int visualStyle = 0;
         Drawable rightSrc = null;
         boolean closeVisible = false;
 
@@ -81,11 +81,6 @@ public class OleTitleBar extends RelativeLayout {
             rightImage.setVisibility(VISIBLE);
         }
 
-        if (!rightEnable) {
-            rightText.setTextColor(ContextCompat.getColor(
-                    getContext(), R.color.textcolor_7B7F83));
-        }
-
         backImage.setOnClickListener(v -> {
             if (mListener != null) {
                 mListener.onBackClick();
@@ -93,6 +88,8 @@ public class OleTitleBar extends RelativeLayout {
         });
 
         closeImage.setVisibility(closeVisible ? VISIBLE : GONE);
+
+        setRightEnable(rightEnable);
 
         closeImage.setOnClickListener(v -> {
             if (mListener != null) {
@@ -132,6 +129,23 @@ public class OleTitleBar extends RelativeLayout {
             default:
                 break;
         }
+    }
+
+    public void setRightEnable(boolean enable){
+        rightEnable = enable;
+
+        if (!rightEnable) {
+            rightText.setTextColor(ContextCompat.getColor(
+                    getContext(), R.color.textcolor_7B7F83));
+        }else{
+            switchVisualStyle(visualStyle);
+        }
+
+        rightText.setOnClickListener(v -> {
+            if (rightEnable && mListener != null) {
+                mListener.onRightClick();
+            }
+        });
     }
 
     public void setTitleClick(OnTitleBarClickListener l) {
