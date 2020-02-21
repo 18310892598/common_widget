@@ -199,4 +199,85 @@ public void setRightEnable(boolean enable)		//设置右键是否可用
 
 public void setTitle(CharSequence text)		//设置标题内容
 
+四、标准popwindow
 
+https://confluence.olafuwu.com/display/oleTerminal/android_popup
+
+### 1.**服务地址** 
+```java 
+git地址 'https://gitlab.olafuwu.com/ole-terminal/ole-arc/android/common_ui/common_widget.git'  
+```
+
+### 2.**使用介绍**
+```java 
+CommonPopupWindow popupWindow;
+
+    private void showPopwindow(View v) {
+        popupWindow = new CommonPopupWindow.Builder(this)
+                .setView(R.layout.home_show_choice_number_view)//传入自定义布局
+                .setWidthAndHeight(1, 0)//设置布局宽高
+                .setAnimationStyle(R.style.picker_view_slide_anim)//设置显示动画
+                .setViewOnclickListener(new CommonPopupWindow.ViewInterface() {//设置自定义布局点击事件
+                    @Override
+                    public void getChildView(View view, int layoutResId) {
+                        TextView choice_one = view.findViewById(R.id.choice_one);
+                        TextView choice_two = view.findViewById(R.id.choice_two);
+                        ImageView close = view.findViewById(R.id.close);
+
+                        choice_one.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                choice_one.setSelected(true);
+                                choice_two.setSelected(false);
+                            }
+                        });
+                        choice_two.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                choice_one.setSelected(false);
+                                choice_two.setSelected(true);
+                            }
+                        });
+                        close.setOnClickListener(view1 -> popupWindow.dismiss());
+                    }
+                })
+                .setOutsideTouchable(true)//设置外部是否可触摸
+                .create();
+
+        popupWindow.showAtLocation(v, Gravity.BOTTOM, 0, 0);//设置显示位置
+    }
+
+```
+
+### 2.**api介绍**
+```java 
+//* @param layoutResId 设置PopupWindow 布局ID
+public Builder setView(int layoutResId) 
+//* @param view 设置PopupWindow布局
+public Builder setView(View view) 
+//* @param listener 字view的点击事件
+public Builder setViewOnclickListener(ViewInterface listener)
+// 设置宽度和高度 如果不设置 默认是wrap_content
+// 1-MATCH_PARENT 0-WRAP_CONTENT
+public Builder setWidthAndHeight(int width, int height)
+/**
+* 设置背景灰色程度
+*
+* @param level 0.0f-1.0f
+* @return Builder
+*/
+public Builder setBackGroundLevel(float level)
+/**
+* 是否可点击Outside消失
+*
+* @param touchable 是否可点击
+* @return Builder
+*/
+public Builder setOutsideTouchable(boolean touchable) 
+/**
+* 设置动画
+*
+* @return Builder
+*/
+public Builder setAnimationStyle(int animationStyle) 
+```
