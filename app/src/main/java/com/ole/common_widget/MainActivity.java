@@ -3,12 +3,10 @@ package com.ole.common_widget;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +26,6 @@ import ola.com.pickerview.listener.OnOptionsSelectListener;
 import ola.com.pickerview.utils.Methods;
 import ola.com.pickerview.utils.TimeBean;
 import ola.com.pickerview.view.OptionsPickerView;
-import ola.com.popwindow.CommonPopupWindow;
 import ola.com.stdialog.DialogListener;
 import ola.com.stdialog.OlaStandardDialog;
 import ola.com.stdialog.StandardDialogHpic;
@@ -89,30 +86,39 @@ public class MainActivity extends AppCompatActivity {
                         .showDialog(getSupportFragmentManager(), new DialogListener() {
                             @Override
                             public void onCancel() {
-                                Toast.makeText(getActivity(), "onCancel",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
                             public void onOk() {
-                                Toast.makeText(getActivity(), "onOk",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
                             }
                         })));
 
         data.add(new ItemBean("StandardDialogMpic",
-                        v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
-                                StandardDialogMpic.class, getActivity(),
-                                R.mipmap.icon_prompt_wait_pay, "title", "content", "negative", "positive"))
-                                .showDialog(getSupportFragmentManager(), new DialogListener() {
-                                    @Override
-                                    public void onCancel() {
-                                        Toast.makeText(getActivity(), "onCancel",Toast.LENGTH_SHORT).show();
-                                    }
+                        v -> {
+                            StandardDialogMpic dialog = OlaStandardDialog.getInstance(
+                                    StandardDialogMpic.class, getActivity(),
+                                    R.mipmap.icon_prompt_wait_pay, "title", "content", "negative", "positive");
 
-                                    @Override
-                                    public void onOk() {
-                                        Toast.makeText(getActivity(), "onOk",Toast.LENGTH_SHORT).show();
-                                    }
-                                })
+                            dialog.enableClose(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Toast.makeText(getActivity(), "close", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            dialog.showDialog(getSupportFragmentManager(), new DialogListener() {
+                                @Override
+                                public void onCancel() {
+                                    Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onOk() {
+                                    Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                 )
         );
 
@@ -123,12 +129,12 @@ public class MainActivity extends AppCompatActivity {
                         .showDialog(getSupportFragmentManager(), new DialogListener() {
                             @Override
                             public void onCancel() {
-                                Toast.makeText(getActivity(), "onCancel",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
                             public void onOk() {
-                                Toast.makeText(getActivity(), "onOk",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
                             }
                         })));
 
@@ -139,12 +145,12 @@ public class MainActivity extends AppCompatActivity {
                         .showDialog(getSupportFragmentManager(), new DialogListener() {
                             @Override
                             public void onCancel() {
-                                Toast.makeText(getActivity(), "onCancel",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
                             public void onOk() {
-                                Toast.makeText(getActivity(), "onOk",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
                             }
                         })));
 

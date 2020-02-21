@@ -26,6 +26,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
     protected String title;
     protected String negative;
     protected String positive;
+    protected View.OnClickListener closeListener;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +48,18 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         setContent(title, content);
         setPositive(positive, dialogListener);
         setNegative(negative, dialogListener);
+        setClose(closeListener);
+    }
+
+    public void setClose(View.OnClickListener onClickListener) {
+        if (onClickListener == null) {
+            return;
+        }
+        ImageView close = mContentView.findViewById(R.id.dia_iv_close);
+        if (close != null) {
+            close.setOnClickListener(onClickListener);
+            close.setVisibility(View.VISIBLE);
+        }
     }
 
     public void setNegative(String negative, DialogListener dialogListener) {
@@ -88,20 +101,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
     }
 
     public OlaBaseStandardDialog enableClose(View.OnClickListener onClickListener) {
-        ImageView close = mContentView.findViewById(R.id.dia_close);
-        if (close != null) {
-            if (onClickListener == null) {
-                close.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dismiss();
-                    }
-                });
-            } else {
-                close.setOnClickListener(onClickListener);
-            }
-            close.setVisibility(View.VISIBLE);
-        }
+        closeListener = onClickListener;
         return this;
     }
 

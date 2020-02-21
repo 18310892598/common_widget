@@ -88,7 +88,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/dia_close"
+        android:id="@+id/dia_iv_close"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_gravity="right"
