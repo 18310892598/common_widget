@@ -10,7 +10,7 @@ import ola.com.stdialog.base.OlaBaseStandardDialog;
 public class StandardDialogLast extends OlaBaseStandardDialog {
     @Override
     protected int getContentView() {
-        return R.layout.dialog_standard_last;
+        return R.layout.dialog_standard_last2;
     }
 
     @Override

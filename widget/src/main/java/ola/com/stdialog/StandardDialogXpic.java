@@ -6,7 +6,7 @@ import ola.com.stdialog.base.OlaBaseStandardDialog;
 public class StandardDialogXpic extends OlaBaseStandardDialog {
     @Override
     protected int getContentView() {
-        return R.layout.dialog_standard_xpic;
+        return R.layout.dialog_standard_xpic2;
     }
 
     @Override

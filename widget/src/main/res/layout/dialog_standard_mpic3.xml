@@ -37,7 +37,6 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:gravity="center"
-            android:maxLines="4"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="告知当前状态，信息和解决方案，文字换行情况"
