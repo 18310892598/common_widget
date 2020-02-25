@@ -27,6 +27,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
     protected String negative;
     protected String positive;
     protected View.OnClickListener closeListener;
+    protected boolean touchOutsideCancel = false;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,8 +50,34 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         setPositive(positive, dialogListener);
         setNegative(negative, dialogListener);
         setClose(closeListener);
+        refreshConfigs();
     }
 
+    private void refreshConfigs() {
+        if (getDialog() != null) {
+            setCancelable(touchOutsideCancel);
+            getDialog().setCanceledOnTouchOutside(touchOutsideCancel);
+        }
+    }
+
+    /**
+     * 设置点击外部是否关闭对话框
+     * @param cancel true 关闭 false 不关闭
+     */
+    public OlaBaseStandardDialog setCanceledOnTouchOutside(boolean cancel) {
+        touchOutsideCancel = cancel;
+        if (getDialog() != null) {
+            refreshConfigs();
+        }
+        return this;
+    }
+
+    /**
+     * 设置关闭按钮
+     * 目前只对mpic有效
+     * 适用于对话框初始化后
+     * @param onClickListener 关闭按钮点击事件
+     */
     public void setClose(View.OnClickListener onClickListener) {
         if (onClickListener == null) {
             return;
@@ -62,6 +89,11 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         }
     }
 
+    /**
+     * 设置否定案件文字及点击事件
+     * @param negative
+     * @param dialogListener
+     */
     public void setNegative(String negative, DialogListener dialogListener) {
         final DialogListener fDialogListener = dialogListener;
         TextView neg = setText(R.id.dia_tv_negative, negative);
@@ -84,6 +116,11 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         }
     }
 
+    /**
+     * 设置肯定按钮文字及点击事件
+     * @param positive
+     * @param dialogListener
+     */
     public void setPositive(String positive, DialogListener dialogListener) {
         final DialogListener fDialogListener = dialogListener;
         TextView pos = setText(R.id.dia_tv_positive, positive);
@@ -100,11 +137,23 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         }
     }
 
+    /**
+     * 设置关闭按钮
+     * 目前只对mpic有效
+     * 适用于对话框初始化前
+     * @param onClickListener 关闭按钮点击事件
+     */
     public OlaBaseStandardDialog enableClose(View.OnClickListener onClickListener) {
         closeListener = onClickListener;
         return this;
     }
 
+    /**
+     * 设置标题及内容
+     * 为空则会gone掉对应文本
+     * @param title
+     * @param content
+     */
     public void setContent(String title, String content) {
         TextView contentView = setText(R.id.dia_tv_content, content);
 

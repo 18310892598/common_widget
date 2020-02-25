@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(getActivity(), "close", Toast.LENGTH_SHORT).show();
                                 }
                             });
+                            dialog.setCanceledOnTouchOutside(true);
                             dialog.showDialog(getSupportFragmentManager(), new DialogListener() {
                                 @Override
                                 public void onCancel() {
