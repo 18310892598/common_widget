@@ -1,6 +1,6 @@
 当前最新版本:
 ```javascript
-api 'com.ole.travel:widget:1.2.39'
+api 'com.ole.travel:widget:1.2.41'
 ```
 
 一、时间选择器
@@ -131,6 +131,23 @@ Objects.requireNonNull(OlaStandardDialog.getInstance(
                 OlaToast.show(getActivity(), "onOk");
             }
         })
+```
+
+相关功能函数：
+```javascript
+    /**
+     * 设置点击外部是否关闭对话框
+     * @param cancel true 关闭 false 不关闭
+     */
+    public OlaBaseStandardDialog setCanceledOnTouchOutside(boolean cancel)
+
+    /**
+     * 设置关闭按钮
+     * 目前只对mpic有效
+     * 适用于对话框初始化前
+     * @param onClickListener 关闭按钮点击事件
+     */
+    public OlaBaseStandardDialog enableClose(View.OnClickListener onClickListener)
 ```
 
 相关样式参考：https://confluence.olafuwu.com/pages/viewpage.action?pageId=19019479#space-menu-link-content
