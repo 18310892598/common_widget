@@ -402,14 +402,18 @@ public class CommonShapeButton extends AppCompatButton {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        //让图片和文字居中
-        if (contentWidth > 0 && (mDrawablePosition == 0 || mDrawablePosition == 2)) {
-            canvas.translate((getWidth() - contentWidth) / 2, 0f);
+        try {
+            //让图片和文字居中
+            if (contentWidth > 0 && (mDrawablePosition == 0 || mDrawablePosition == 2)) {
+                canvas.translate((getWidth() - contentWidth) / 2, 0f);
+            }
+            if (contentHeight > 0 && (mDrawablePosition == 1 || mDrawablePosition == 3)) {
+                canvas.translate(0f, (getHeight() - contentHeight) / 2);
+            }
+            super.onDraw(canvas);
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-        if (contentHeight > 0 && (mDrawablePosition == 1 || mDrawablePosition == 3)) {
-            canvas.translate(0f, (getHeight() - contentHeight) / 2);
-        }
-        super.onDraw(canvas);
     }
 
 }
