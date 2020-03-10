@@ -79,8 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
         data.add(new ItemBean("------------------", null));
 
-        data.add(new ItemBean("StandardDialogXpic",
-                v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
+        data.add(new ItemBean("StandardDialogXpic", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Objects.requireNonNull(OlaStandardDialog.getInstance(
                         StandardDialogXpic.class, getActivity(),
                         0, "title", "asoijfqpoiwejfpiahspvihapsodihfpqhf;aiohsdpciohpzxchv;qpweoihpviugspfauhpsdiofhpqoiwhziugxvpiahpweiohfoiahsdivhaoizxchvpihapdihfapsivihcgvpaisdhfipoqwfhashfjqpweoihpviugspfauhpsdiofhpqoiwhziugxvpiahpweiohfoiahsdivhaoizxchvpihapdihfapsivihcgvpaisdhfipoqwfhashfjqpweoihpviugspfauhpsdiofhpqoiwhziugxvpiahpweiohfoiahsdivhaoizxchvpihapdihfapsivihcgvpaisdhfipoqwfhashfj", "negative", "positive"))
                         .showDialog(getSupportFragmentManager(), new DialogListener() {
@@ -93,67 +95,82 @@ public class MainActivity extends AppCompatActivity {
                             public void onOk() {
                                 Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
                             }
-                        })));
+                        });
+            }
+        }));
 
         data.add(new ItemBean("StandardDialogMpic",
-                        v -> {
-                            StandardDialogMpic dialog = OlaStandardDialog.getInstance(
-                                    StandardDialogMpic.class, getActivity(),
-                                    R.mipmap.icon_prompt_wait_pay, "title", "content", "negative", "positive");
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                StandardDialogMpic dialog = OlaStandardDialog.getInstance(
+                                        StandardDialogMpic.class, getActivity(),
+                                        R.mipmap.icon_prompt_wait_pay, "title", "content", "negative", "positive");
 
-                            dialog.enableClose(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Toast.makeText(getActivity(), "close", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                            dialog.setCanceledOnTouchOutside(true);
-                            dialog.showDialog(getSupportFragmentManager(), new DialogListener() {
-                                @Override
-                                public void onCancel() {
-                                    Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
-                                }
+                                dialog.enableClose(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Toast.makeText(getActivity(), "close", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                                dialog.setCanceledOnTouchOutside(true);
+                                dialog.showDialog(getSupportFragmentManager(), new DialogListener() {
+                                    @Override
+                                    public void onCancel() {
+                                        Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
+                                    }
 
-                                @Override
-                                public void onOk() {
-                                    Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                                    @Override
+                                    public void onOk() {
+                                        Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
                         }
                 )
         );
 
         data.add(new ItemBean("StandardDialogHpic",
-                v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
-                        StandardDialogHpic.class, getActivity(),
-                        R.mipmap.number_pic2, "title", "content", "negative", "positive"))
-                        .showDialog(getSupportFragmentManager(), new DialogListener() {
-                            @Override
-                            public void onCancel() {
-                                Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
-                            }
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Objects.requireNonNull(OlaStandardDialog.getInstance(
+                                StandardDialogHpic.class, getActivity(),
+                                R.mipmap.number_pic2, "title", "content", "negative", "positive"))
+                                .showDialog(getSupportFragmentManager(), new DialogListener() {
+                                    @Override
+                                    public void onCancel() {
+                                        Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
+                                    }
 
-                            @Override
-                            public void onOk() {
-                                Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
-                            }
-                        })));
+                                    @Override
+                                    public void onOk() {
+                                        Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    }
+                }));
 
         data.add(new ItemBean("StandardDialogLast",
-                v -> Objects.requireNonNull(OlaStandardDialog.getInstance(
-                        StandardDialogLast.class, getActivity(),
-                        0, "title", "content", "negative", "positive"))
-                        .showDialog(getSupportFragmentManager(), new DialogListener() {
-                            @Override
-                            public void onCancel() {
-                                Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
-                            }
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Objects.requireNonNull(OlaStandardDialog.getInstance(
+                                StandardDialogLast.class, getActivity(),
+                                0, "title", "content", "negative", "positive"))
+                                .showDialog(getSupportFragmentManager(), new DialogListener() {
+                                    @Override
+                                    public void onCancel() {
+                                        Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
+                                    }
 
-                            @Override
-                            public void onOk() {
-                                Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
-                            }
-                        })));
+                                    @Override
+                                    public void onOk() {
+                                        Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    }
+                }));
 
 
         ListView lv = findViewById(R.id.lv);

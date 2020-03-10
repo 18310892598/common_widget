@@ -102,10 +102,13 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
                 neg.setVisibility(View.GONE);
                 mContentView.findViewById(R.id.divider_line2).setVisibility(View.GONE);
             } else {
-                neg.setOnClickListener(view -> {
-                    dismiss();
-                    if (fDialogListener != null) {
-                        fDialogListener.onCancel();
+                neg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dismiss();
+                        if (fDialogListener != null) {
+                            fDialogListener.onCancel();
+                        }
                     }
                 });
 
@@ -125,10 +128,13 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         final DialogListener fDialogListener = dialogListener;
         TextView pos = setText(R.id.dia_tv_positive, positive);
         if (pos != null) {
-            pos.setOnClickListener(view -> {
-                dismiss();
-                if (fDialogListener != null) {
-                    fDialogListener.onOk();
+            pos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dismiss();
+                    if (fDialogListener != null) {
+                        fDialogListener.onOk();
+                    }
                 }
             });
             if (getContext() != null) {

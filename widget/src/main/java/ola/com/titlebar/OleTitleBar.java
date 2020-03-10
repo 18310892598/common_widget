@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -78,9 +79,12 @@ public class OleTitleBar extends RelativeLayout {
             rightImage.setVisibility(VISIBLE);
         }
 
-        backImage.setOnClickListener(v -> {
-            if (mListener != null) {
-                mListener.onBackClick();
+        backImage.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onBackClick();
+                }
             }
         });
 
@@ -88,19 +92,28 @@ public class OleTitleBar extends RelativeLayout {
 
         setRightEnable(rightEnable);
 
-        closeImage.setOnClickListener(v -> {
-            if (mListener != null) {
-                mListener.onCloseClick();
+        closeImage.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onCloseClick();
+                }
             }
         });
-        rightText.setOnClickListener(v -> {
-            if (rightEnable && mListener != null) {
-                mListener.onRightClick();
+        rightText.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (rightEnable && mListener != null) {
+                    mListener.onRightClick();
+                }
             }
         });
-        rightImage.setOnClickListener(v -> {
-            if (mListener != null) {
-                mListener.onRightClick();
+        rightImage.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onRightClick();
+                }
             }
         });
     }
@@ -138,9 +151,12 @@ public class OleTitleBar extends RelativeLayout {
             switchVisualStyle(visualStyle);
         }
 
-        rightText.setOnClickListener(v -> {
-            if (rightEnable && mListener != null) {
-                mListener.onRightClick();
+        rightText.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (rightEnable && mListener != null) {
+                    mListener.onRightClick();
+                }
             }
         });
     }

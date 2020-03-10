@@ -1,5 +1,6 @@
 package ola.com.stdialog;
 
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -23,10 +24,13 @@ public class StandardDialogLast extends OlaBaseStandardDialog {
         final DialogListener fDialogListener = dialogListener;
         TextView pos = setText(R.id.dia_tv_positive, positive);
         if (pos != null) {
-            pos.setOnClickListener(view -> {
-                dismiss();
-                if (fDialogListener != null) {
-                    fDialogListener.onOk();
+            pos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dismiss();
+                    if (fDialogListener != null) {
+                        fDialogListener.onOk();
+                    }
                 }
             });
             if (getContext() != null) {

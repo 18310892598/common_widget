@@ -62,7 +62,12 @@ public class PopwindowActivity extends AppCompatActivity {
                                 choice_two.setSelected(true);
                             }
                         });
-                        close.setOnClickListener(view1 -> popupWindow.dismiss());
+                        close.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                popupWindow.dismiss();
+                            }
+                        });
                     }
                 })
                 .setOutsideTouchable(true)//设置外部是否可触摸

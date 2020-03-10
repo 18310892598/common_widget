@@ -108,6 +108,12 @@ public abstract class OlaBaseRootDialog extends DialogFragment {
 
     protected void showSoftKeyboard(View v) {
         v.postDelayed(() -> ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(v, 0), 300);
+        v.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(v, 0);
+            }
+        },300);
     }
 
     @Override
