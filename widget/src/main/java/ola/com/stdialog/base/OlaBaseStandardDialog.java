@@ -62,6 +62,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
 
     /**
      * 设置点击外部是否关闭对话框
+     *
      * @param cancel true 关闭 false 不关闭
      */
     public OlaBaseStandardDialog setCanceledOnTouchOutside(boolean cancel) {
@@ -76,6 +77,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
      * 设置关闭按钮
      * 目前只对mpic有效
      * 适用于对话框初始化后
+     *
      * @param onClickListener 关闭按钮点击事件
      */
     public void setClose(View.OnClickListener onClickListener) {
@@ -91,6 +93,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
 
     /**
      * 设置否定案件文字及点击事件
+     *
      * @param negative
      * @param dialogListener
      */
@@ -121,6 +124,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
 
     /**
      * 设置肯定按钮文字及点击事件
+     *
      * @param positive
      * @param dialogListener
      */
@@ -147,6 +151,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
      * 设置关闭按钮
      * 目前只对mpic有效
      * 适用于对话框初始化前
+     *
      * @param onClickListener 关闭按钮点击事件
      */
     public OlaBaseStandardDialog enableClose(View.OnClickListener onClickListener) {
@@ -157,6 +162,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
     /**
      * 设置标题及内容
      * 为空则会gone掉对应文本
+     *
      * @param title
      * @param content
      */
@@ -172,6 +178,10 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
                     titleView.setTextColor(ContextCompat.getColor(getContext(), Configuration.getTitleColor(APP)));
                 }
             }
+        }
+
+        if (contentView != null && TextUtils.isEmpty(content)) {
+            contentView.setVisibility(View.GONE);
         }
         if (getContext() != null) {
             contentView.setTextColor(ContextCompat.getColor(getContext(), Configuration.getContentColor(APP)));

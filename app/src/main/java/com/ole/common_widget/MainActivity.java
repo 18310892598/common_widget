@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Objects.requireNonNull(OlaStandardDialog.getInstance(
                         StandardDialogXpic.class, getActivity(),
-                        0, "title", "asoijfqpoiwejfpiahspvihapsodihfpqhf;aiohsdpciohpzxchv;qpweoihpviugspfauhpsdiofhpqoiwhziugxvpiahpweiohfoiahsdivhaoizxchvpihapdihfapsivihcgvpaisdhfipoqwfhashfjqpweoihpviugspfauhpsdiofhpqoiwhziugxvpiahpweiohfoiahsdivhaoizxchvpihapdihfapsivihcgvpaisdhfipoqwfhashfjqpweoihpviugspfauhpsdiofhpqoiwhziugxvpiahpweiohfoiahsdivhaoizxchvpihapdihfapsivihcgvpaisdhfipoqwfhashfj", "negative", "positive"))
+                        0, null, "", "negative", "positive"))
                         .showDialog(getSupportFragmentManager(), new DialogListener() {
                             @Override
                             public void onCancel() {
