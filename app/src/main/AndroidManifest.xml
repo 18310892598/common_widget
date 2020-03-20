@@ -19,7 +19,6 @@
 
         <activity android:name=".ButtonActivity"/>
         <activity android:name=".ToastActivity"/>
-        <activity android:name=".TitleActivity"/>
         <activity android:name=".PopwindowActivity" />
     </application>
 
