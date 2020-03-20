@@ -1,7 +1,9 @@
 当前最新版本:
 ```javascript
-api 'com.ole.travel:widget:1.2.41'
+api 'com.ole.travel:widget:1.3.0'
 ```
+
+注意：原本包含在内的titleBar于1.3以后已经被移除并单独设置为一个仓库，升级后如果发现找不到titleBar只需添加相关引用即可，详细内容参考https://gitlab.olafuwu.com/ole-terminal/ole-arc/android/common_ui/common_titlebar.git
 
 一、时间选择器
 ——TimePickerView 时间选择器，支持年月日时分，年月日，年月，时分等格式。
