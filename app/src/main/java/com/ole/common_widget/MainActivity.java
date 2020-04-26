@@ -3,6 +3,7 @@ package com.ole.common_widget;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +17,22 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 import ola.com.pickerview.builder.OptionsPickerBuilder;
+import ola.com.pickerview.builder.TimePickerBuilder;
 import ola.com.pickerview.interfaces.IPickerViewData;
 import ola.com.pickerview.listener.OnOptionsSelectListener;
+import ola.com.pickerview.listener.OnTimeSelectChangeListener;
+import ola.com.pickerview.listener.OnTimeSelectListener;
 import ola.com.pickerview.utils.Methods;
 import ola.com.pickerview.utils.TimeBean;
 import ola.com.pickerview.view.OptionsPickerView;
+import ola.com.pickerview.view.TimePickerView;
 import ola.com.stdialog.DialogListener;
 import ola.com.stdialog.OlaStandardDialog;
 import ola.com.stdialog.StandardDialogHpic;
@@ -66,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
         data.add(new ItemBean("showTimePicker", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showTimePicker(true);
+//                showTimePicker(true);
+                showTimePicker();
             }
         }));
 
@@ -193,6 +201,27 @@ public class MainActivity extends AppCompatActivity {
         };
         lv.setAdapter(adapter);
 
+    }
+
+    private void showTimePicker() {
+        TimePickerView pvTime;
+        pvTime = new TimePickerBuilder(this, new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {
+                Toast.makeText(MainActivity.this, getTime(date), Toast.LENGTH_SHORT).show();
+                Log.i("pvTime", "onTimeSelect");
+            }
+        })
+                .setLineSpacingMultiplier(2.0f)
+                .isDialog(false)
+                .build();
+        pvTime.show();
+    }
+
+    private String getTime(Date date) {//可根据需要自行截取数据显示
+        Log.d("getTime()", "choice date millis: " + date.getTime());
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
     }
 
     private MainActivity getActivity() {
