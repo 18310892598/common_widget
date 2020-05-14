@@ -22,10 +22,10 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
     private DialogListener dialogListener;
 
     protected int pic;
-    protected String content;
-    protected String title;
-    protected String negative;
-    protected String positive;
+    protected CharSequence content;
+    protected CharSequence title;
+    protected CharSequence negative;
+    protected CharSequence positive;
     protected View.OnClickListener closeListener;
     protected boolean touchOutsideCancel = false;
 
@@ -35,10 +35,10 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         Bundle args = getArguments();
         if (args != null) {
             pic = args.getInt("pic", 0);
-            title = args.getString("title", "");
-            content = args.getString("content", "");
-            negative = args.getString("negative", "");
-            positive = args.getString("positive", "");
+            title = args.getCharSequence("title", "");
+            content = args.getCharSequence("content", "");
+            negative = args.getCharSequence("negative", "");
+            positive = args.getCharSequence("positive", "");
         }
     }
 
@@ -97,7 +97,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
      * @param negative
      * @param dialogListener
      */
-    public void setNegative(String negative, DialogListener dialogListener) {
+    public void setNegative(CharSequence negative, DialogListener dialogListener) {
         final DialogListener fDialogListener = dialogListener;
         TextView neg = setText(R.id.dia_tv_negative, negative);
         if (neg != null) {
@@ -128,7 +128,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
      * @param positive
      * @param dialogListener
      */
-    public void setPositive(String positive, DialogListener dialogListener) {
+    public void setPositive(CharSequence positive, DialogListener dialogListener) {
         final DialogListener fDialogListener = dialogListener;
         TextView pos = setText(R.id.dia_tv_positive, positive);
         if (pos != null) {
@@ -159,6 +159,10 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         return this;
     }
 
+    public void setContent(CharSequence content){
+        this.content = content;
+    }
+
     /**
      * 设置标题及内容
      * 为空则会gone掉对应文本
@@ -166,7 +170,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
      * @param title
      * @param content
      */
-    public void setContent(String title, String content) {
+    public void setContent(CharSequence title, CharSequence content) {
         TextView contentView = setText(R.id.dia_tv_content, content);
 
         TextView titleView = setText(R.id.dia_tv_title, title);
@@ -188,7 +192,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         }
     }
 
-    public TextView setText(int id, String str) {
+    public TextView setText(int id, CharSequence str) {
         TextView tv = mContentView.findViewById(id);
         if (tv != null && !TextUtils.isEmpty(str)) {
             tv.setText(str);

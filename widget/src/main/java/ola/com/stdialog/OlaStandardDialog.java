@@ -9,7 +9,7 @@ public class OlaStandardDialog {
 
     public static <T extends OlaBaseRootDialog> T getInstance(
             Class<T> t, Context context,
-            int pic,String title, String content, String negative, String positive) {
+            int pic, CharSequence title, CharSequence content, CharSequence negative, CharSequence positive) {
         T dialog = null;
 
         try {
@@ -23,10 +23,10 @@ public class OlaStandardDialog {
 
             Bundle bundle = new Bundle();
             bundle.putInt("pic", pic);
-            bundle.putString("title", title);
-            bundle.putString("content", content);
-            bundle.putString("negative", negative);
-            bundle.putString("positive", positive);
+            bundle.putCharSequence("title", title);
+            bundle.putCharSequence("content", content);
+            bundle.putCharSequence("negative", negative);
+            bundle.putCharSequence("positive", positive);
             dialog.setArguments(bundle);
             return dialog;
         } else {

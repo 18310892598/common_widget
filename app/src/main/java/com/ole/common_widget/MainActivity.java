@@ -3,6 +3,7 @@ package com.ole.common_widget;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,20 +76,20 @@ public class MainActivity extends AppCompatActivity {
         data.add(new ItemBean("StandardDialogXpic", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Objects.requireNonNull(OlaStandardDialog.getInstance(
+                StandardDialogXpic instance = OlaStandardDialog.getInstance(
                         StandardDialogXpic.class, getActivity(),
-                        0, null, "", "negative", "positive"))
-                        .showDialog(getSupportFragmentManager(), new DialogListener() {
-                            @Override
-                            public void onCancel() {
-                                Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
-                            }
+                        0, null, Html.fromHtml("<font color = \"#14A83E\">" + 3 + "秒</font>后重新获取"), "negative", "positive");
+                instance.showDialog(getSupportFragmentManager(), new DialogListener() {
+                    @Override
+                    public void onCancel() {
+                        Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_SHORT).show();
+                    }
 
-                            @Override
-                            public void onOk() {
-                                Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                    @Override
+                    public void onOk() {
+                        Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         }));
 
