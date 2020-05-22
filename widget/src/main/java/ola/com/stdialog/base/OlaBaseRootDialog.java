@@ -27,6 +27,7 @@ import ola.com.dialog.R;
 
 public abstract class OlaBaseRootDialog extends DialogFragment {
     protected View mContentView;
+    private DialogProgressListener dialogListener;
 
     protected abstract int getContentView();
 
@@ -44,6 +45,9 @@ public abstract class OlaBaseRootDialog extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mContentView = inflater.inflate(getContentView(), container);
         initViews();
+        if (dialogListener != null) {
+            dialogListener.onInitViewFinish(mContentView);
+        }
         return mContentView;
     }
 
@@ -113,7 +117,11 @@ public abstract class OlaBaseRootDialog extends DialogFragment {
             public void run() {
                 ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(v, 0);
             }
-        },300);
+        }, 300);
+    }
+
+    public void setDialogProgressListener(DialogProgressListener dialogListener) {
+        this.dialogListener = dialogListener;
     }
 
     @Override
@@ -147,5 +155,9 @@ public abstract class OlaBaseRootDialog extends DialogFragment {
                 });
             }
         });
+    }
+
+    public interface DialogProgressListener {
+        void onInitViewFinish(View contentView);
     }
 }

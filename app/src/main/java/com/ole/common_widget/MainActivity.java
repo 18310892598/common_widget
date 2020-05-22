@@ -39,6 +39,7 @@ import ola.com.stdialog.StandardDialogHpic;
 import ola.com.stdialog.StandardDialogLast;
 import ola.com.stdialog.StandardDialogMpic;
 import ola.com.stdialog.StandardDialogXpic;
+import ola.com.stdialog.base.OlaBaseRootDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,6 +96,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onOk() {
                         Toast.makeText(getActivity(), "onOk", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                instance.setDialogProgressListener(new OlaBaseRootDialog.DialogProgressListener() {
+                    @Override
+                    public void onInitViewFinish(View contentView) {
+                        instance.setText(ola.com.dialog.R.id.dia_tv_content, "6666666");
                     }
                 });
             }
