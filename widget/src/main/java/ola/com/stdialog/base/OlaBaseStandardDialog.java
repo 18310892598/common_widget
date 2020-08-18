@@ -26,6 +26,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
     protected CharSequence title;
     protected CharSequence negative;
     protected CharSequence positive;
+    protected int negcolor;
     protected View.OnClickListener closeListener;
     protected boolean touchOutsideCancel = false;
 
@@ -39,6 +40,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
             content = args.getCharSequence("content", "");
             negative = args.getCharSequence("negative", "");
             positive = args.getCharSequence("positive", "");
+            negcolor = args.getInt("negcolor", 0);
         }
     }
 
@@ -116,7 +118,11 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
                 });
 
                 if (getContext() != null) {
-                    neg.setTextColor(ContextCompat.getColor(getContext(), Configuration.getNegativeColor(APP)));
+                    if (negcolor != 0) {
+                        neg.setTextColor(ContextCompat.getColor(getContext(), negcolor));
+                    } else {
+                        neg.setTextColor(ContextCompat.getColor(getContext(), Configuration.getNegativeColor(APP)));
+                    }
                 }
             }
         }
@@ -159,7 +165,7 @@ public abstract class OlaBaseStandardDialog extends OlaBaseRootDialog {
         return this;
     }
 
-    public void setContent(CharSequence content){
+    public void setContent(CharSequence content) {
         this.content = content;
     }
 
